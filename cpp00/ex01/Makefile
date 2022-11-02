@@ -18,6 +18,8 @@ _ORANGE=$'\033[38;2;255;165;0m
 NAME		= PhoneBook
 
 SRCS		= phonebook.cpp			\
+			  contact.cpp			\
+			  main.cpp				\
 
 CC			= c++
 
