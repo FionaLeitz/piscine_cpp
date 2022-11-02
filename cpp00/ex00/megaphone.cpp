@@ -1,13 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 16:10:28 by fleitz            #+#    #+#             */
-/*   Updated: 2022/10/27 16:10:35 by fleitz           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
+#include <iostream>
+#include <cstring>
 
+int	main(int argc, char **argv)
+{
+	size_t	i;
+	int		count;
+
+	for (count = 1; count < argc; count++)
+	{
+		for (i = 0; argv[count][i]; i++)
+			std::cout << (char)toupper(argv[count][i]);
+	}
+	if (argc == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	std::cout << std::endl;
+	return 0;
+
+}
