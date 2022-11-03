@@ -2,15 +2,45 @@
 #include <cstring>
 #include "Contact.hpp"
 
-Contact::Contact( char p1, int p2, float p3 ) : a1(p1), a2(p2), a3(p3) {
-	std::cout << std::endl << "Constructor for Contact called" << std::endl;
-	std::cout << "Contact: this->a1 = " << this->a1 << std::endl;
-	std::cout << "Contact: this->a2 = " << this->a2 << std::endl;
-	std::cout << "Contact: this->a3 = " << this->a3 << std::endl;
+Contact::Contact( void ) {
+	std::cout << "Constructor for Contact called" << std::endl;
 	return ;
 }
 
 Contact::~Contact( void ) {
 	std::cout << "Destructor for Contact called" << std::endl;
+	return ;
+}
+
+void	Contact::get_add( void ) {
+	this->first_name.clear();
+	std::cout << "First name : ";
+	std::cin >> this->first_name;
+	while (this->first_name.size() < 10)
+		this->first_name+= " ";
+
+	std::cout << "Last name : ";
+	this->last_name.clear();
+	std::cin >> this->last_name;
+	while (this->last_name.size() < 10)
+		this->last_name+= " ";
+
+	std::cout << "Nickname : ";
+	this->nickname.clear();
+	std::cin >> this->nickname;
+	while (this->nickname.size() < 10)
+		this->nickname+= " ";
+
+	std::cout << "Number : ";
+	this->phone_nbr.clear();
+	std::cin >> this->phone_nbr;
+	while (this->phone_nbr.size() < 10)
+		this->phone_nbr+= " ";
+
+	std::cout << "Darkest secret : ";
+	this->secret.clear();
+	std::cin >> this->secret;
+	while (this->secret.size() < 10)
+		this->secret+= " ";
 	return ;
 }

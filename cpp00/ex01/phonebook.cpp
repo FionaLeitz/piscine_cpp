@@ -14,23 +14,47 @@
 #include <cstring>
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook( char p1, int p2, float p3 ) {
+Phonebook::Phonebook( void ) {
 	std::cout << "Constructor for Phonebook called" << std::endl;
-
-	this->a1 = p1;
-	std::cout << "Phonebook: this->a1 = " << this->a1 << std::endl;
-
-	this->a2 = p2;
-	std::cout << "Phonebook: this->a2 = " << this->a2 << std::endl;
-
-	this->a3 = p3;
-	std::cout << "Phonebook: this->a3 = " << this->a3 << std::endl;
-
 	return ;
 }
 
-Phonebook::~Phonebook( void )
-{
+Phonebook::~Phonebook( void ) {
 	std::cout << "Destructor for Phonebook called" << std::endl;
+	return ;
+}
+
+void	Phonebook::make_search( void ) {
+	int		count = 0;
+	char	index;
+
+	if (this->count == 0)
+	{
+		std::cout << "No contact yet..." << std::endl;
+		return ;
+	}
+	while (count < this->count)
+	{
+		std::cout << "_____________________________________________" << std::endl;
+		std::cout << "|" << count + 1 << "         |";
+		std::cout << this->book[count].first_name << "|";
+		std::cout << this->book[count].last_name << "|";
+		std::cout << this->book[count].nickname << "|" << std::endl;
+		std::cout << "_____________________________________________" << std::endl;
+		count++;
+	}
+	std::cout << "Which index do you want ?" << std::endl;
+	std::cin >> index;
+	index--;
+	if (index < this->count + '0' && index >= '0')
+	{
+		std::cout << "First name: " << this->book[index - '0'].first_name << std::endl;
+		std::cout << "Last name: " << this->book[index - '0'].last_name << std::endl;
+		std::cout << "Nickname: " << this->book[index - '0'].nickname << std::endl;
+		std::cout << "Phone number: " << this->book[index - '0'].phone_nbr << std::endl;
+		std::cout << "Darkest secret: " << this->book[index - '0'].secret << std::endl;
+	}
+	else
+		std::cout << "Invalid anser" << std::endl;
 	return ;
 }

@@ -1,16 +1,17 @@
 #ifndef	PHONEBOOK_HPP
 # define PHONEBOOK_HPP
+# include "Contact.hpp"
 
 class Phonebook {
 
 	public:
-
-		char	a1;
-		int		a2;
-		float	a3;
-
-		Phonebook( char p1, int p2, float p3 );
+		int		count;
+		Contact book[8];
+		Phonebook( void );
 		~Phonebook( void );
+		void	make_search( void );
+
+	private:
 
 };
 
