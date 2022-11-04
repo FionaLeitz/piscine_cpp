@@ -13,8 +13,12 @@ class Contact {
 		std::string	nickname;
 		std::string	phone_nbr;
 		std::string	secret;
-		void		get_add( void );
+		std::string	show;
+		void		get_add( int count );
+
 	private:
+		void		_prompt_add( const char *str, int line );
+		void		_resize( int size, int line );
 	
 };
 

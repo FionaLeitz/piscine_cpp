@@ -15,12 +15,12 @@
 #include "Phonebook.hpp"
 
 Phonebook::Phonebook( void ) {
-	std::cout << "Constructor for Phonebook called" << std::endl;
+	// std::cout << "Constructor for Phonebook called" << std::endl;
 	return ;
 }
 
 Phonebook::~Phonebook( void ) {
-	std::cout << "Destructor for Phonebook called" << std::endl;
+	// std::cout << "Destructor for Phonebook called" << std::endl;
 	return ;
 }
 
@@ -33,13 +33,10 @@ void	Phonebook::make_search( void ) {
 		std::cout << "No contact yet..." << std::endl;
 		return ;
 	}
+	std::cout << "_____________________________________________" << std::endl;
 	while (count < this->count)
 	{
-		std::cout << "_____________________________________________" << std::endl;
-		std::cout << "|" << count + 1 << "         |";
-		std::cout << this->book[count].first_name << "|";
-		std::cout << this->book[count].last_name << "|";
-		std::cout << this->book[count].nickname << "|" << std::endl;
+		std::cout << this->book[count].show << std::endl;
 		std::cout << "_____________________________________________" << std::endl;
 		count++;
 	}
@@ -55,6 +52,6 @@ void	Phonebook::make_search( void ) {
 		std::cout << "Darkest secret: " << this->book[index - '0'].secret << std::endl;
 	}
 	else
-		std::cout << "Invalid anser" << std::endl;
+		std::cout << "Invalid answer" << std::endl;
 	return ;
 }

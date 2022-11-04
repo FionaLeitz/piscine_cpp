@@ -6,8 +6,6 @@
 
 /*
 Il manque :
-	- le point quand il y a plus de 10 caracteres
-	- retirer les espaces quand on imprime les informations d'un contact
 	- faire un truc plus clean
 	- mettre un maximum de truc en prive
 */
@@ -25,7 +23,7 @@ int	main( void ) {
 		std::cin >> cmd;
 		if (std::strcmp(cmd, "ADD") == 0)
 		{
-			repertory.book[count].get_add();
+			repertory.book[count].get_add( count );
 			count++;
 			if (count >= 8)
 				count = 0;
@@ -37,5 +35,6 @@ int	main( void ) {
 		else if (std::strcmp(cmd, "EXIT") != 0)
 			std::cout << "This command does not exist" << std::endl;
 	}
+	std::cout << "See you soon" << std::endl;
 	return 0;
 }

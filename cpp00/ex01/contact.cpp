@@ -3,44 +3,68 @@
 #include "Contact.hpp"
 
 Contact::Contact( void ) {
-	std::cout << "Constructor for Contact called" << std::endl;
+	// std::cout << "Constructor for Contact called" << std::endl;
 	return ;
 }
 
 Contact::~Contact( void ) {
-	std::cout << "Destructor for Contact called" << std::endl;
+	// std::cout << "Destructor for Contact called" << std::endl;
 	return ;
 }
 
-void	Contact::get_add( void ) {
-	this->first_name.clear();
-	std::cout << "First name : ";
-	std::cin >> this->first_name;
-	while (this->first_name.size() < 10)
-		this->first_name+= " ";
+void	Contact::_prompt_add( const char *str, int line ) {
+	std::string	*place;
 
-	std::cout << "Last name : ";
-	this->last_name.clear();
-	std::cin >> this->last_name;
-	while (this->last_name.size() < 10)
-		this->last_name+= " ";
+	std::cout << str;
+	if (line == 1)
+		place = &this->first_name;
+	else if (line == 2)
+		place = &this->last_name;
+	else if (line == 3)
+		place = &this->nickname;
+	else if (line == 4)
+		place = &this->phone_nbr;
+	else if (line == 5)
+		place = &this->secret;
+	place->clear();
+	std::cin >> *place;
+	return ;
+}
 
-	std::cout << "Nickname : ";
-	this->nickname.clear();
-	std::cin >> this->nickname;
-	while (this->nickname.size() < 10)
-		this->nickname+= " ";
+void	Contact::_resize( int size, int line ) {
+	std::string	*place;
 
-	std::cout << "Number : ";
-	this->phone_nbr.clear();
-	std::cin >> this->phone_nbr;
-	while (this->phone_nbr.size() < 10)
-		this->phone_nbr+= " ";
+	if (line == 1)
+		place = &this->first_name;
+	else if (line == 2)
+		place = &this->last_name;
+	else if (line == 3)
+		place = &this->nickname;
+	this->show+= *place;
+	if (this->show.size() >= size)
+	{
+		this->show.resize(size - 1);
+		this->show[size - 2] = '.';
+	}
+	while (this->show.size() % 11 != 0)
+		this->show+= " ";
+		this->show+= "|";
+	return ;
+}
 
-	std::cout << "Darkest secret : ";
-	this->secret.clear();
-	std::cin >> this->secret;
-	while (this->secret.size() < 10)
-		this->secret+= " ";
+void	Contact::get_add( int count ) {
+
+	this->_prompt_add( "First name : ", 1);
+	this->_prompt_add( "Last name : ", 2);
+	this->_prompt_add( "Nickname : ", 3);
+	this->_prompt_add( "Number : ", 4);
+	this->_prompt_add( "Darkest secret : ", 5);
+	this->show.clear();
+	this->show+= "|";
+	this->show+= count + '1';
+	this->show+= "         |";
+	this->_resize( 23, 1 );
+	this->_resize( 34, 2 );
+	this->_resize( 45, 3 );
 	return ;
 }
