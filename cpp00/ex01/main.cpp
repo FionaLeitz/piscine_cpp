@@ -1,15 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/04 14:58:17 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/04 14:58:19 by fleitz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Phonebook.hpp"
 #include "Contact.hpp"
 #include <iostream>
 #include <cstring>
-
-
-/*
-Il manque :
-	- faire un truc plus clean
-	- mettre un maximum de truc en prive
-*/
-
 
 int	main( void ) {
 	Phonebook	repertory;
@@ -35,6 +39,6 @@ int	main( void ) {
 		else if (std::strcmp(cmd, "EXIT") != 0)
 			std::cout << "This command does not exist" << std::endl;
 	}
-	std::cout << "See you soon" << std::endl;
+	std::cout << "See you soon !" << std::endl;
 	return 0;
 }

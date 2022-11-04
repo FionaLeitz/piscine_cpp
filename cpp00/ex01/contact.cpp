@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/04 14:57:54 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/04 14:58:05 by fleitz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <cstring>
 #include "Contact.hpp"
@@ -9,6 +21,15 @@ Contact::Contact( void ) {
 
 Contact::~Contact( void ) {
 	// std::cout << "Destructor for Contact called" << std::endl;
+	return ;
+}
+
+void	Contact::print( void ) {
+	std::cout << "First name: " << this->first_name << std::endl;
+	std::cout << "Last name: " << this->last_name << std::endl;
+	std::cout << "Nickname: " << this->nickname << std::endl;
+	std::cout << "Phone number: " << this->phone_nbr << std::endl;
+	std::cout << "Darkest secret: " << this->secret << std::endl;
 	return ;
 }
 
