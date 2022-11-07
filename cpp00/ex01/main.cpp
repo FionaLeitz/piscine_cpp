@@ -18,14 +18,14 @@
 int	main( void ) {
 	Phonebook	repertory;
 	int			count = 0;
-	char		cmd[7] = "\0";
+	std::string	cmd;
 
 	repertory.count = 0;
-	while (std::strcmp(cmd, "EXIT") != 0)
+	while (cmd != "EXIT")
 	{
 		std::cout << "What would you like to do ?" << std::endl;
 		std::cin >> cmd;
-		if (std::strcmp(cmd, "ADD") == 0)
+		if (cmd == "ADD")
 		{
 			repertory.book[count].get_add( count );
 			count++;
@@ -34,9 +34,9 @@ int	main( void ) {
 			if (repertory.count < 8)
 				repertory.count++;
 		}
-		else if (std::strcmp(cmd, "SEARCH") == 0)
+		else if (cmd =="SEARCH")
 			repertory.make_search();
-		else if (std::strcmp(cmd, "EXIT") != 0)
+		else if (cmd != "EXIT")
 			std::cout << "This command does not exist" << std::endl;
 	}
 	std::cout << "See you soon !" << std::endl;

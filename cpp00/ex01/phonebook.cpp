@@ -23,8 +23,8 @@ Phonebook::~Phonebook( void ) {
 }
 
 void	Phonebook::make_search( void ) {
-	int		count = 0;
-	char	index;
+	int			count = 0;
+	std::string	index;
 
 	if (this->count == 0)
 	{
@@ -40,9 +40,9 @@ void	Phonebook::make_search( void ) {
 	}
 	std::cout << "Which index do you want ?" << std::endl;
 	std::cin >> index;
-	index--;
-	if (index < this->count + '0' && index >= '0')
-		this->book[index - '0'].print();
+	index[0]--;
+	if (index.size() < 2 && index[0] < this->count + '0' && index[0] >= '0')
+		this->book[index[0] - '0'].print();
 	else
 		std::cout << "Invalid answer" << std::endl;
 	return ;
