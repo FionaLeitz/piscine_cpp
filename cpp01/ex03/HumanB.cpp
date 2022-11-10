@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 10:34:44 by fleitz            #+#    #+#             */
-/*   Updated: 2022/11/10 10:34:45 by fleitz           ###   ########.fr       */
+/*   Created: 2022/11/10 11:10:38 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/10 11:10:40 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie	*newZombie( std::string name ) {
-	Zombie	*newz = new Zombie( name );
-	newz->annonce();
-	return newz;
+HumanB( void ) {
+	return ;
+}
+
+~HumanB( void ) {
+	return ;
 }

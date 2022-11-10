@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 10:34:44 by fleitz            #+#    #+#             */
-/*   Updated: 2022/11/10 10:34:45 by fleitz           ###   ########.fr       */
+/*   Created: 2022/11/10 11:10:31 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/10 11:10:33 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-Zombie	*newZombie( std::string name ) {
-	Zombie	*newz = new Zombie( name );
-	newz->annonce();
-	return newz;
-}
+#include <iostream>
+
+class	HumanA {
+
+	public:
+		HumanA( void );
+		~HumanA( void );
+
+	private:
+
+
+};
+
+#endif

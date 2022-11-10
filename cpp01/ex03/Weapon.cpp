@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 10:34:44 by fleitz            #+#    #+#             */
-/*   Updated: 2022/11/10 10:34:45 by fleitz           ###   ########.fr       */
+/*   Created: 2022/11/10 11:11:50 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/10 11:11:51 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapn.hpp"
 
-Zombie	*newZombie( std::string name ) {
-	Zombie	*newz = new Zombie( name );
-	newz->annonce();
-	return newz;
+Weapon( void ) {
+	return ;
+}
+
+~Weapon( void ) {
+	return ;
 }
