@@ -12,10 +12,17 @@
 
 #include "HumanA.hpp"
 
-HumanA( void ) {
+HumanA::HumanA( std::string name, Weapon& club ) : _name( name ), _weapon( club ) {
 	return ;
 }
 
-~HumanA( void ) {
+HumanA::~HumanA( void ) {
+	return ;
+}
+
+void	HumanA::attack( void ) {
+	std::cout << this->_name << " attacks with their ";
+	std::cout << this->_weapon.getType();
+	std::cout << std::endl;
 	return ;
 }

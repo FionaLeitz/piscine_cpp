@@ -14,14 +14,19 @@
 # define HUMANB_HPP
 
 #include <iostream>
+#include "Weapon.hpp"
 
 class	HumanB {
 
 	public:
-		HumanB( void );
+		HumanB( std::string name );
 		~HumanB( void );
+		void		attack( void );
+		void		setWeapon( Weapon& club );
 
 	private:
+		std::string	_name;
+		Weapon		*_weapon;
 
 
 };

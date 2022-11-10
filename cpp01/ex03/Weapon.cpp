@@ -10,12 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapn.hpp"
+#include "Weapon.hpp"
 
-Weapon( void ) {
+Weapon::Weapon( std::string club ) : _type(club) {
 	return ;
 }
 
-~Weapon( void ) {
+Weapon::~Weapon( void ) {
+	return ;
+}
+
+std::string& Weapon::getType( void ) {
+	return this->_type;
+}
+
+void		Weapon::setType( std::string club ) {
+	this->_type = club;
 	return ;
 }

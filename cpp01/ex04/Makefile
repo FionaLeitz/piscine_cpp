@@ -15,12 +15,9 @@ _GREEN=$'\033[1;32m
 _YELLOW=$'\033[1;33m
 _ORANGE=$'\033[38;2;255;165;0m
 
-NAME		= Useless_Violence
+NAME		= Sed
 
 SRCS		= main.cpp					\
-			  Weapon.cpp				\
-			  HumanA.cpp				\
-			  HumanB.cpp				\
 
 CC			= c++
 
@@ -31,7 +28,7 @@ OBJS		= ${SRCS:%.cpp=%.o}
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@echo "${_GREEN}-------------- USELESS_VIOLENCE --------------${_END}"
+			@echo "${_GREEN}-------------- SED --------------${_END}"
 			@echo "${_ORANGE}Objects ${NAME} created${_END}"
 			@${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 			@echo "${_GREEN}-->${NAME} compiled succesfully !${_END}"

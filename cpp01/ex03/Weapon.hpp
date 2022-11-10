@@ -18,11 +18,13 @@
 class	Weapon {
 
 	public:
-		Weapon( void );
+		Weapon( std::string club );
 		~Weapon( void );
+		std::string&	getType( void );
+		void			setType( std::string newType );
 
 	private:
-
+		std::string		_type;
 
 };
 
