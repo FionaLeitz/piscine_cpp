@@ -48,7 +48,7 @@ void	Contact::_prompt_add( const char *str, int line ) {
 	else if (line == 5)
 		place = &this->secret;
 	place->clear();
-	std::cin >> *place;
+	std::getline(std::cin, *place);
 	return ;
 }
 

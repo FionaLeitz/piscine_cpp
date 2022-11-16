@@ -24,7 +24,7 @@ int	main( void ) {
 	while (cmd != "EXIT")
 	{
 		std::cout << "What would you like to do ?" << std::endl;
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
 		{
 			repertory.book[count].get_add( count );
