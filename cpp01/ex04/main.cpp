@@ -18,6 +18,11 @@ int	main(int argc, char **argv)
 	tmp = argv[1];
 	tmp += ".replace";
 	old.open(argv[1]);
+	if (old.is_open() == false)
+	{
+		std::cout << "Wrong input file" << std::endl;
+		return 1;
+	}
 	rep.open(tmp);
 	tmp.clear();
 	std::getline(old, tmp, (char)EOF);
