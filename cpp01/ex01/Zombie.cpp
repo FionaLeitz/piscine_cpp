@@ -22,7 +22,7 @@ Zombie::~Zombie( void ) {
 	return ;
 }
 
-void	Zombie::annonce( void ) {
+void	Zombie::annonce( void ) const {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ...";
 	std::cout << std::endl;
 	return ;

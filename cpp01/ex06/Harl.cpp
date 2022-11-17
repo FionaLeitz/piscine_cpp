@@ -1,38 +1,35 @@
 #include "Harl.hpp"
 
-typedef struct	s_complaints
-{
-	std::string	str;
-	void		(Harl::*func)() const;
-}				t_complaints;
-
-Harl::Harl(void) {
-	std::cout<< "Harl a ete cree" << std::endl;
+Harl::Harl( void ) {
 	return ;
 }
 
-Harl::~Harl(void) {
-	std::cout << "Et Harl est mort" << std::endl;
+Harl::~Harl( void ) {
 	return ;
 }
 
-void	Harl::complain( std::string level ) {
-	int				count = -1;
-	t_complaints	complaints[4] = {
-		{"DEBUG", &Harl::_debug},
-		{"INFO", &Harl::_info},
-		{"WARNING", &Harl::_warning},
-		{"ERROR", &Harl::_error}
-	};
-	while (++count < 4)
+void	Harl::complain( std::string level ) const {
+	std::string	tab[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+	int	i;
+
+	for (i = 0; tab[i] != level; i++)
+		;
+	switch ( i )
 	{
-		if (level == complaints[count].str)
-		{
-			(this->*(complaints[count].func))();
-			return ;
-		}
+			case 0:
+				this->_debug();
+			case 1:
+				this->_info();
+			case 2:
+				this->_warning();
+			case 3:
+			{
+				this->_error();
+				break ;
+			}
+			default:
+				std::cout << "Harl is too enraged to speak properly." << std::endl;
 	}
-	std::cout << "Harl is too enraged to speak properly." << std::endl;
 	return ;
 }
 

@@ -25,7 +25,7 @@ void	HumanB::setWeapon( Weapon& club ) {
 	return ;
 }
 
-void	HumanB::attack( void ) {
+void	HumanB::attack( void ) const {
 	if (this->_weapon == NULL)
 	{
 		std::cout << this->_name << " can't attack without a weapon..." << std::endl;

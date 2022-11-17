@@ -1,39 +1,50 @@
 #include <iostream>
 #include <fstream>
 
+void	ft_replace(std::string filename, char **arg, std::string tmp) {
+	int				count_tmp;
+	int				save_count;
+	std::string		old_str = arg[0];
+	std::string		new_str= arg[1];
+	std::ofstream	new_file;
+
+	new_file.open(filename);
+	count_tmp = 0;
+	save_count = 0;
+	count_tmp = tmp.find(old_str, count_tmp);
+	while (count_tmp != tmp.npos)
+	{
+		new_file << tmp.substr(save_count, count_tmp - save_count) << new_str;
+		count_tmp += old_str.size();
+		save_count = count_tmp;
+		count_tmp = tmp.find(old_str, count_tmp);
+	}
+	new_file << tmp.substr(save_count, count_tmp - save_count);
+	new_file.close();
+	return ;
+}
+
 int	main(int argc, char **argv)
 {
-	std::ifstream	old;
-	std::ofstream	rep;
+	std::ifstream	old_file;
 	std::string		tmp;
-	std::string		old_str = argv[2];
-	std::string		rep_str = argv[3];
-	int				i;
+	std::string		filename;
 
 	if (argc != 4)
 	{
 		std::cout << "Wrong number of arguments" << std::endl;
 		return 1;
 	}
-	tmp = argv[1];
-	tmp += ".replace";
-	old.open(argv[1]);
-	if (old.is_open() == false)
+	filename = argv[1];
+	filename += ".replace";
+	old_file.open(argv[1]);
+	if (old_file.is_open() == false)
 	{
 		std::cout << "Wrong input file" << std::endl;
 		return 1;
 	}
-	rep.open(tmp);
-	tmp.clear();
-	std::getline(old, tmp, (char)EOF);
-	i = tmp.find(old_str, 0);
-	for (; tmp.npos != i; i = tmp.find(old_str, i))
-	{
-		tmp.replace(i, old_str.size(), rep_str);
-		i += rep_str.size();
-	}
-	rep << tmp;
-	old.close();
-	rep.close();
+	std::getline(old_file, tmp, (char)EOF);
+	old_file.close();
+	ft_replace(filename, &argv[2], tmp);
 	return 0;
 }

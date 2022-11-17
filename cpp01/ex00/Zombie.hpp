@@ -21,7 +21,7 @@ class Zombie {
 	public:
 		Zombie( std::string name ) ;
 		~Zombie( void ) ;
-		void		annonce( void );
+		void		annonce( void ) const ;
 
 	private:
 		std::string	_name;

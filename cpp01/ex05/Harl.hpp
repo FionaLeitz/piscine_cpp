@@ -12,10 +12,10 @@ class	Harl {
 		void	complain( std::string level );
 
 	private:
-		void	_debug( void );
-		void	_info( void );
-		void	_warning( void );
-		void	_error( void );
+		void	_debug( void ) const ;
+		void	_info( void ) const ;
+		void	_warning( void ) const ;
+		void	_error( void ) const ;
 
 };
 
