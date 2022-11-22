@@ -17,8 +17,8 @@ _ORANGE=$'\033[38;2;255;165;0m
 
 NAME		= HarlFilter
 
-SRCS		= main.cpp					\
-			  Harl.cpp					\
+SRCS		= main.cpp						\
+			  srcs/Harl.cpp					\
 
 CC			= c++
 

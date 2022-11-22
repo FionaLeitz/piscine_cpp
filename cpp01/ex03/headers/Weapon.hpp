@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 11:10:45 by fleitz            #+#    #+#             */
-/*   Updated: 2022/11/10 11:10:47 by fleitz           ###   ########.fr       */
+/*   Created: 2022/11/10 11:11:55 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/10 11:11:57 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-#include <iostream>
-#include "Weapon.hpp"
+# include <iostream>
 
-class	HumanB {
+class	Weapon {
 
 	public:
-		HumanB( std::string name );
-		~HumanB( void );
-		void		attack( void ) const ;
-		void		setWeapon( Weapon& club );
+		Weapon( std::string club );
+		~Weapon( void );
+		const std::string	&getType( void ) const ;
+		void				setType( std::string newType );
 
 	private:
-		std::string	_name;
-		Weapon		*_weapon;
-
+		std::string		_type;
 
 };
 

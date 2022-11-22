@@ -1,16 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/21 10:24:32 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/21 10:24:35 by fleitz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <fstream>
 
 void	ft_replace(std::string filename, char **arg, std::string tmp) {
-	int				count_tmp;
-	int				save_count;
+	int				count_tmp = 0;
+	int				save_count = 0;
 	std::string		old_str = arg[0];
-	std::string		new_str= arg[1];
+	std::string		new_str = arg[1];
 	std::ofstream	new_file;
 
 	new_file.open(filename);
-	count_tmp = 0;
-	save_count = 0;
 	count_tmp = tmp.find(old_str, count_tmp);
 	while (count_tmp != tmp.npos)
 	{

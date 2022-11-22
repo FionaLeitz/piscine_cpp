@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 10:25:26 by fleitz            #+#    #+#             */
-/*   Updated: 2022/11/21 10:25:28 by fleitz           ###   ########.fr       */
+/*   Created: 2022/11/10 10:34:50 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/10 10:34:52 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/Harl.hpp"
+#include "../headers/Zombie.hpp"
 
-int	main(int argc, char **argv)
-{
-	Harl		harl;
-
-	if (argc != 2)
-	{
-		std::cout << "Is Harl Ok ?" << std::endl;
-		return 1;
-	}
-	harl.complain(argv[1]);
-	return 0;
+void	randomChump( std::string name ) {
+	Zombie	random(name);
+	random.annonce();
+	return ;
 }

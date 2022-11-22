@@ -6,7 +6,7 @@
 #    By: fleitz <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 16:10:16 by fleitz            #+#    #+#              #
-#    Updated: 2022/10/27 16:10:21 by fleitz           ###   ########.fr        #
+#    Updated: 2022/11/21 10:25:11 by fleitz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ _ORANGE=$'\033[38;2;255;165;0m
 
 NAME		= Harl_2.0
 
-SRCS		= main.cpp					\
-			  Harl.cpp					\
+SRCS		= main.cpp						\
+			  srcs/Harl.cpp					\
 
 CC			= c++
 

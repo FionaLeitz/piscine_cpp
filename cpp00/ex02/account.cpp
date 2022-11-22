@@ -11,7 +11,6 @@ int		Account::_totalNbWithdrawals = 0;
 Account::Account( int initial_deposit ) {
 	this->_accountIndex = this->_nbAccounts;
 	this->_amount = initial_deposit;
- //	this->_totalAmount += this->_amount;
 	this->_totalAmount += this->checkAmount();
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";

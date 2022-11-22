@@ -17,10 +17,10 @@ _ORANGE=$'\033[38;2;255;165;0m
 
 NAME		= Useless_Violence
 
-SRCS		= main.cpp					\
-			  Weapon.cpp				\
-			  HumanA.cpp				\
-			  HumanB.cpp				\
+SRCS		= main.cpp						\
+			  srcs/Weapon.cpp				\
+			  srcs/HumanA.cpp				\
+			  srcs/HumanB.cpp				\
 
 CC			= c++
 

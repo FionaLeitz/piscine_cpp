@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "../headers/HumanB.hpp"
 
 HumanB::HumanB( std::string name ) : _name( name ), _weapon( NULL ) {
 	return ;
@@ -20,7 +20,7 @@ HumanB::~HumanB( void ) {
 	return ;
 }
 
-void	HumanB::setWeapon( Weapon& club ) {
+void	HumanB::setWeapon( Weapon &club ) {
 	this->_weapon = &club;
 	return ;
 }

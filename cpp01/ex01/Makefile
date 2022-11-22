@@ -17,9 +17,9 @@ _ORANGE=$'\033[38;2;255;165;0m
 
 NAME		= MoreBraiiiiiiinnnzzzZ
 
-SRCS		= main.cpp					\
-			  Zombie.cpp				\
-			  zombieHorde.cpp			\
+SRCS		= main.cpp						\
+			  srcs/Zombie.cpp				\
+			  srcs/zombieHorde.cpp			\
 
 CC			= c++
 

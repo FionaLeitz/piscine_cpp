@@ -17,10 +17,10 @@ _ORANGE=$'\033[38;2;255;165;0m
 
 NAME		= BraiiiiiiinnnzzzZ
 
-SRCS		= main.cpp			\
-			  Zombie.cpp		\
-			  randomChump.cpp	\
-			  newZombie.cpp		\
+SRCS		= main.cpp					\
+			  srcs/Zombie.cpp			\
+			  srcs/randomChump.cpp		\
+			  srcs/newZombie.cpp		\
 
 CC			= c++
 

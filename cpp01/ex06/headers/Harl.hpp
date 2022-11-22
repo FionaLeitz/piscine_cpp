@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 10:34:50 by fleitz            #+#    #+#             */
-/*   Updated: 2022/11/10 10:34:52 by fleitz           ###   ########.fr       */
+/*   Created: 2022/11/21 10:25:34 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/21 10:25:35 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-void	randomChump( std::string name ) {
-	Zombie	random(name);
-	random.annonce();
-	return ;
-}
+# include <string>
+# include <iostream>
+
+class	Harl {
+
+	public:
+		Harl( void );
+		~Harl( void );
+		void	complain( std::string level ) const;
+
+	private:
+		void	_debug( void ) const;
+		void	_info( void ) const;
+		void	_warning( void ) const;
+		void	_error( void ) const;
+
+};
+
+#endif
