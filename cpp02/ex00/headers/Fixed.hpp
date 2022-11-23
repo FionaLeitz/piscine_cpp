@@ -9,9 +9,11 @@ class	Fixed {
 		Fixed( void );
 		Fixed( const Fixed& value);
 		~Fixed( void );
-		Fixed &			operator=( Fixed const & rhs );
+
+		Fixed &			operator=( const Fixed & rhs );
+
 		int				getRawBits( void ) const ;
-		void			setRawBits( int const raw );
+		void			setRawBits( const int raw );
 
 	private:
 		int					_value;
