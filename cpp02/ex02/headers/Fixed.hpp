@@ -13,6 +13,19 @@ class	Fixed {
 		~Fixed( void );										// destructeur par defaut
 
 		Fixed &				operator=( const Fixed & rhs );
+
+		bool				operator>( const Fixed & rhs );
+		bool				operator<( const Fixed & rhs );
+		bool				operator>=( const Fixed & rhs );
+		bool				operator<=( const Fixed & rhs );
+		bool				operator==( const Fixed & rhs );
+		bool				operator!=( const Fixed & rhs );
+
+		Fixed				operator+( const Fixed & rhs );
+		Fixed				operator-( const Fixed & rhs );
+		Fixed				operator*( const Fixed & rhs );
+		Fixed				operator/( const Fixed & rhs );
+
 		float				toFloat( void ) const ;
 		int					toInt( void ) const ;
 		int					getRawBits( void ) const ;
