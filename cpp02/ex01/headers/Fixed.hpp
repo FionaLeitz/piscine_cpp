@@ -2,6 +2,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class	Fixed {
 	public:
@@ -12,7 +13,6 @@ class	Fixed {
 		~Fixed( void );										// destructeur par defaut
 
 		Fixed &				operator=( const Fixed & rhs );
-		/*surcharge de l'operateur << ne sera pas present dans la classe*/
 		float				toFloat( void ) const ;
 		int					toInt( void ) const ;
 		int					getRawBits( void ) const ;
@@ -23,5 +23,7 @@ class	Fixed {
 		static const int	_bits;
 
 };
+
+std::ostream &	operator<<( std::ostream & o, Fixed const & rhs);
 
 #endif
