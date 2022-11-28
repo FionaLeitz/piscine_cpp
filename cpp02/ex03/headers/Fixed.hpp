@@ -6,11 +6,11 @@
 
 class	Fixed {
 	public:
-		Fixed( void );										// constructeur par defaut
-		Fixed( const Fixed& value);							// constructeur par copie
-		Fixed( const int nbr );								// constructeur qui prend un const int
-		Fixed( const float nbr );							// constructeur qui prend un float
-		~Fixed( void );										// destructeur par defaut
+		Fixed( void );
+		Fixed( const Fixed& value);
+		Fixed( const int nbr );
+		Fixed( const float nbr );
+		~Fixed( void );
 
 		Fixed &				operator=( const Fixed & rhs );
 
