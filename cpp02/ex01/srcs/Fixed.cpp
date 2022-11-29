@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 16:49:11 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/28 16:49:12 by fleitz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../headers/Fixed.hpp"
 
 const int	Fixed::_bits = 8;
@@ -15,13 +27,11 @@ Fixed::Fixed( const Fixed& value) {
 
 Fixed::Fixed( const int nbr ) : _RawBits(nbr << this->_bits) {
 	std::cout << "Int constructor called" << std::endl;
-	// this->_RawBits = nbr << this->_bits;
 	return ;
 }
 
 Fixed::Fixed( const float nbr ) : _RawBits(roundf(nbr * (1 << this->_bits))) {
 	std::cout << "Float constructor called" << std::endl;
-	// this->_RawBits = roundf(nbr * (1 << this->_bits));
 	return ;
 }
 

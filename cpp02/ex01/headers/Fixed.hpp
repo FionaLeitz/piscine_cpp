@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/28 16:49:34 by fleitz            #+#    #+#             */
+/*   Updated: 2022/11/28 16:49:36 by fleitz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
@@ -8,7 +20,7 @@ class	Fixed {
 	public:
 		Fixed( void );										// constructeur par defaut
 		Fixed( const Fixed& value);							// constructeur par copie
-		Fixed( const int nbr );								// constructeur qui prend un const int
+		Fixed( const int nbr );								// constructeur qui prend un int
 		Fixed( const float nbr );							// constructeur qui prend un float
 		~Fixed( void );										// destructeur par defaut
 
