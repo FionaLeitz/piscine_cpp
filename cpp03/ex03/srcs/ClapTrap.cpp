@@ -1,23 +1,23 @@
 #include "../headers/ClapTrap.hpp"
 
 ClapTrap::ClapTrap( void ) : _name( "NoName" ), _hp(10), _mana(10), _damages(0) {
-	std::cout << "Default construtor" << std::endl;
+	std::cout << "Default construtor for ClapTrap " << this->get_name() << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( std::string name ) : _name(name), _hp(10), _mana(10), _damages(0) {
-	std::cout << "Constructor with name" << std::endl;
+	std::cout << "Constructor with name for ClapTrap " << this->get_name() << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & value ) {
-	std::cout << "Copy constructor" << std::endl;
+	std::cout << "Copy constructor for ClapTrap " << this->get_name() << std::endl;
 	*this = value;
 	return ;
 }
 
 ClapTrap::~ClapTrap( void ) {
-	std::cout << "Default destructor" << std::endl;
+	std::cout << "Default destructor for ClapTrap " << this->get_name() << std::endl;
 	return ;
 }
 
@@ -25,23 +25,23 @@ ClapTrap &	ClapTrap::operator=( const ClapTrap & rhs ) {
 	this->set_name( rhs.get_name() );
 	this->set_hp( rhs.get_hp() );
 	this->set_mana( rhs.get_mana() );
-	this->set_damages( rhs.get_mana() );
+	this->set_damages( rhs.get_damages() );
 	return *this;
 }
 
 void	ClapTrap::attack( const std::string & target ) {
 	if (this->get_mana() == 0)
 	{
-		std::cout << "ClapTrap " << this->get_name() << " does not have any mana, it can't attack."
+		std::cout << this->get_name() << " does not have any mana, it can't attack."
 		<< std::endl;
 		return ;
 	}
 	if (this->get_hp() == 0)
 	{
-		std::cout << "ClapTrap " << this->get_name() << " is dead, it can't attack." << std::endl;
+		std::cout << this->get_name() << " is dead, it can't attack." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->get_name() << " attacks " << target
+	std::cout << this->get_name() << " attacks " << target
 	<< ", causing " << this->get_damages() << " points of damage!" << std::endl;
 	this->set_mana( this->get_mana() - 1 );
 	return ;
@@ -50,15 +50,14 @@ void	ClapTrap::attack( const std::string & target ) {
 void	ClapTrap::takeDamage( unsigned int amount ) {
 	if (this->get_hp() == 0)
 	{
-		std::cout << "ClapTrap " << this->get_name() << " can't take damages, it's already dead!"
+		std::cout << this->get_name() << " can't take damages, it's already dead!"
 		<< std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->get_name() << " takes "
-	<< amount << " damages..." << std::endl;
+	std::cout << this->get_name() << " takes " << amount << " damages..." << std::endl;
 	if (this->get_hp() <= amount)
 	{
-		std::cout << "It was too much for ClapTrap " << this->get_name()
+		std::cout << "It was too much for " << this->get_name()
 		<< ", it died." << std::endl;
 		this->set_hp( 0 );
 		return ;
@@ -70,16 +69,16 @@ void	ClapTrap::takeDamage( unsigned int amount ) {
 void	ClapTrap::beRepaired( unsigned int amount ) {
 	if (this->get_mana() == 0)
 	{
-		std::cout << "ClapTrap " << this->get_name() << " does not have any mana, it can't repaire itself."
+		std::cout << this->get_name() << " does not have any mana, it can't repaire itself."
 		<< std::endl;
 		return ;
 	}
 	if (this->get_hp() == 0)
 	{
-		std::cout << "ClapTrap " << this->get_name() << " is dead, it can't repaire itself." << std::endl;
+		std::cout << this->get_name() << " is dead, it can't repaire itself." << std::endl;
 		return ;
 	}
-	std::cout << "ClapTrap " << this->get_name() << " repaires itself and gains " << amount << " life points." << std::endl;
+	std::cout << this->get_name() << " repaires itself and gains " << amount << " life points." << std::endl;
 	this->set_mana( this->get_mana() - 1 );
 	this->set_hp( this->get_hp() + amount );
 	return ;

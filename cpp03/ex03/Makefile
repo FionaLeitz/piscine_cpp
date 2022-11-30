@@ -15,10 +15,13 @@ _GREEN=$'\033[1;32m
 _YELLOW=$'\033[1;33m
 _ORANGE=$'\033[38;2;255;165;0m
 
-NAME		= Aaaaaand...ACTION!
+NAME		= It's_alive!
 
 SRCS		= main.cpp					\
 			  srcs/ClapTrap.cpp			\
+			  srcs/ScavTrap.cpp			\
+			  srcs/FragTrap.cpp			\
+			  srcs/DiamondTrap.cpp		\
 
 CC			= c++
 
@@ -31,7 +34,7 @@ DEPS		= ${SRCS:%.cpp=%.d}
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@echo "${_GREEN}-------------- AAAAAAND...ACTION! --------------${_END}"
+			@echo "${_GREEN}-------------- IT'S_ALIVE! --------------${_END}"
 			@echo "${_ORANGE}Objects ${NAME} created${_END}"
 			@${CC} ${CXXFLAGS} -o ${NAME} ${OBJS}
 			@echo "${_GREEN}--> ${NAME} compiled succesfully !${_END}"
