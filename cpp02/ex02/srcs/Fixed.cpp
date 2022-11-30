@@ -137,7 +137,7 @@ Fixed	Fixed::operator++( int ) {
 	return tmp;
 }
 
-Fixed	Fixed::operator++( void ) {
+Fixed &	Fixed::operator++( void ) {
 	std::cout << "=== OPERATOR ++a" << std::endl;
 	this->setRawBits(this->getRawBits() + 1);
 	return *this;
@@ -150,7 +150,7 @@ Fixed	Fixed::operator--( int ) {
 	return tmp;
 }
 
-Fixed	Fixed::operator--( void ) {
+Fixed &	Fixed::operator--( void ) {
 	std::cout << "=== OPERATOR --a" << std::endl;
 	this->setRawBits(this->getRawBits() - 1);
 	return *this;

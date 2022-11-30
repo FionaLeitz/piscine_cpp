@@ -39,9 +39,9 @@ class	Fixed {
 		Fixed				operator/( const Fixed & rhs );
 
 		Fixed				operator++( int );
-		Fixed				operator++( void );
+		Fixed &				operator++( void );
 		Fixed				operator--( int );
-		Fixed				operator--( void );
+		Fixed &				operator--( void );
 
 		static Fixed &			min( Fixed & a, Fixed & b );
 		static Fixed const &	min( const Fixed & a, const Fixed & b );

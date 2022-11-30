@@ -24,27 +24,27 @@ int	main( int argc, char **argv ) {
 		if (a > b)
 			std::cout << a << " est superieur a " << b << std::endl;
 		else
-			std::cout << a << " est inferieur ou egale a " << b << std::endl;
+			std::cout << a << " est inferieur ou egal a " << b << std::endl;
 		if (a < b)
 			std::cout << a << " est inferieur a " << b << std::endl;
 		else
-			std::cout << a << " est superieur ou egale a " << b << std::endl;
+			std::cout << a << " est superieur ou egal a " << b << std::endl;
 		if (a >= b)
-			std::cout << a << " est superieur ou egale a " << b << std::endl;
+			std::cout << a << " est superieur ou egal a " << b << std::endl;
 		else
 			std::cout << a << " est inferieur a " << b << std::endl;
 		if (a <= b)
-			std::cout << a << " est inferieur ou egale a " << b << std::endl;
+			std::cout << a << " est inferieur ou egal a " << b << std::endl;
 		else
 			std::cout << a << " est superieur a " << b << std::endl;
 		if (a == b)
-			std::cout << a << " est egale a " << b << std::endl;
+			std::cout << a << " est egal a " << b << std::endl;
 		else
-			std::cout << a << " n'est pas egale a " << b << std::endl;
+			std::cout << a << " n'est pas egal a " << b << std::endl;
 		if (a != b)
-			std::cout << a << " n'est pas egale a " << b << std::endl;
+			std::cout << a << " n'est pas egal a " << b << std::endl;
 		else
-			std::cout << a << " est egale a " << b << std::endl;
+			std::cout << a << " est egal a " << b << std::endl;
 	}
 	if (atoi(argv[1]) == 2)
 	{

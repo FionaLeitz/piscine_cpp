@@ -24,17 +24,22 @@ SRCS		= main.cpp					\
 
 CC			= c++
 
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 OBJS		= ${SRCS:%.cpp=%.o}
+
+DEPS		= ${SRCS:%.cpp=%.d}
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
 			@echo "${_GREEN}-------------- BSP --------------${_END}"
 			@echo "${_ORANGE}Objects ${NAME} created${_END}"
-			@${CC} ${CFLAGS} -o ${NAME} ${OBJS}
+			@${CC} ${CXXFLAGS} -o ${NAME} ${OBJS}
 			@echo "${_GREEN}--> ${NAME} compiled succesfully !${_END}"
+
+%.o: %.cpp
+	${CC} ${CXXFLAGS} -c $< -o $@ -MMD
 
 clean:
 			@rm -rf ${OBJS}
@@ -47,3 +52,5 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+-include ${DEPS}

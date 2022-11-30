@@ -1,6 +1,9 @@
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
+# include <string>
+# include <iostream>
+
 class	ClapTrap {
 	public:
 		ClapTrap( std::string name );
@@ -27,6 +30,8 @@ class	ClapTrap {
 		unsigned int	_hp;
 		unsigned int	_mana;
 		unsigned int	_damages;
+
+		ClapTrap( void );
 
 };
 
