@@ -1,7 +1,8 @@
 #include "../headers/ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void ) : _name( "NoName" ), _hp(10), _mana(10), _damages(0) {
+ClapTrap::ClapTrap( void ) : _hp(10), _mana(10), _damages(0) {
 	std::cout << "Default construtor for ClapTrap " << this->get_name() << std::endl;
+	this->ClapTrap::set_name( "No_Name" );
 	return ;
 }
 
@@ -85,11 +86,11 @@ void	ClapTrap::beRepaired( unsigned int amount ) {
 }
 
 std::string	ClapTrap::get_name( void ) const {
-	return this->_name;
+	return this->ClapTrap::_name;
 }
 
 void	ClapTrap::set_name( std::string name ) {
-	this->_name = name;
+	this->ClapTrap::_name = name;
 	return;
 }
 

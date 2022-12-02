@@ -15,13 +15,14 @@ _GREEN=$'\033[1;32m
 _YELLOW=$'\033[1;33m
 _ORANGE=$'\033[38;2;255;165;0m
 
-NAME		= It_is_alive!
+NAME		= Polymorph
 
 SRCS		= main.cpp					\
-			  srcs/ClapTrap.cpp			\
-			  srcs/ScavTrap.cpp			\
-			  srcs/FragTrap.cpp			\
-			  srcs/DiamondTrap.cpp		\
+			  srcs/Animal.cpp			\
+			  srcs/Cat.cpp				\
+			  srcs/Dog.cpp				\
+			  srcs/WrongAnimal.cpp		\
+			  srcs/WrongCat.cpp			\
 
 CC			= c++
 
@@ -29,26 +30,26 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 OBJS		= ${addprefix objs/, ${SRCS:%.cpp=%.o}}
 
-DEPS		= ${SRCS:%.cpp=%.d}
+DEPS		= ${addprefix objs/, ${SRCS:%.cpp=%.d}}
 
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@echo "${_GREEN}-------------- IT'S_ALIVE! --------------${_END}"
+			@echo "${_GREEN}-------------- POLYMORPH --------------${_END}"
 			@echo "${_ORANGE}Objects ${NAME} created${_END}"
 			@${CC} ${CXXFLAGS} -o ${NAME} ${OBJS}
 			@echo "${_GREEN}--> ${NAME} compiled succesfully !${_END}"
 
 objs/%.o:	%.cpp
 			@mkdir -p objs/srcs
-			${CC} ${CXXFLAGS} -Wshadow -c $< -o $@ -MMD
+			${CC} ${CXXFLAGS} -c $< -o $@ -MMD
 
 clean:
 			@rm -rf objs
 			@echo "${_YELLOW}Objects ${NAME} cleaned !${_END}"
 
 fclean:		clean
-			@rm -f ${NAME} 
+			@rm -f ${NAME}
 			@echo "${_YELLOW}${NAME} cleaned !${_END}"
 
 re:			fclean all
