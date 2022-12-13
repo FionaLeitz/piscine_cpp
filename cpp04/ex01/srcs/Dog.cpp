@@ -21,7 +21,9 @@ Dog::Dog( void ) {
 
 Dog::Dog( const Dog & value ) {
 	std::cout << "Copy constructor for Dog" << std::endl;
-	*this = value;
+	this->setBrain( new Brain() );
+	this->getBrain()[0] = value.getBrain()[0];
+	this->setType( "dog" );
 	return ;
 }
 
@@ -30,6 +32,13 @@ Dog::~Dog( void ) {
 	delete this->getBrain();
 	return ;
 }
+
+Dog &	Dog::operator= ( const Dog & rhs ) {
+	this->getBrain()[0] = rhs.getBrain()[0];
+	this->setType( "dog" );
+	return *this;
+}
+
 void	Dog::makeSound( void ) const {
 	std::cout << "Woouaf !" << std::endl;
 	return ;

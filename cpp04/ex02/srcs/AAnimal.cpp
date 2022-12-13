@@ -19,7 +19,7 @@ AAnimal::AAnimal( void ) : _type( "alive" ) {
 
 AAnimal::AAnimal( const AAnimal & value ) : _type( "alive" ) {
 	std::cout << "Copy constructor for AAnimal" << std::endl;
-	*this = value;
+	this->setType( value.getType() );
 	return ;
 }
 
@@ -39,9 +39,5 @@ std::string	AAnimal::getType( void ) const {
 
 void	AAnimal::setType( std::string type ) {
 	this->_type = type;
-	return ;
-}
-
-void	AAnimal::makeSound( void ) const {
 	return ;
 }

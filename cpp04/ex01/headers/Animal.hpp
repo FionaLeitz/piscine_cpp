@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include "Brain.hpp"
 
 class	Animal	{
 	public:
@@ -26,6 +27,7 @@ class	Animal	{
 
 		std::string		getType( void ) const;
 		void			setType( std::string type );
+		// virtual Brain *	getBrain( void ) const = 0;
 		virtual void	makeSound( void ) const;
 
 	protected:

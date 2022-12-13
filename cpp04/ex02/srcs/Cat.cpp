@@ -21,7 +21,9 @@ Cat::Cat( void ) {
 
 Cat::Cat( const Cat & value ) {
 	std::cout << "Copy constructor for Cat" << std::endl;
-	*this = value;
+	this->setBrain( new Brain() );
+	this->getBrain()[0] = value.getBrain()[0];
+	this->setType( "cat" );
 	return ;
 }
 
@@ -29,6 +31,12 @@ Cat::~Cat( void ) {
 	std::cout << "Default destructor for Cat" << std::endl;
 	delete this->getBrain();
 	return ;
+}
+
+Cat &	Cat::operator= ( const Cat & rhs ) {
+	this->getBrain()[0] = rhs.getBrain()[0];
+	this->setType( "cat" );
+	return *this;
 }
 
 void	Cat::makeSound( void ) const {

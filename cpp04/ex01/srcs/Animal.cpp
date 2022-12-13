@@ -19,7 +19,7 @@ Animal::Animal( void ) : _type( "alive" ) {
 
 Animal::Animal( const Animal & value ) : _type( "alive" ) {
 	std::cout << "Copy constructor for Animal" << std::endl;
-	*this = value;
+	this->setType( value.getType() );
 	return ;
 }
 

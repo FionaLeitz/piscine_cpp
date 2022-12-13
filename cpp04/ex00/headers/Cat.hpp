@@ -21,7 +21,7 @@ class	Cat : public Animal {
 		Cat( const Cat & value ) ;
 		~Cat( void );
 
-		virtual void	makeSound( void ) const;
+		void	makeSound( void ) const;
 
 	private:
 

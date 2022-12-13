@@ -27,15 +27,14 @@ class	Brain {
 		void			newIdea( std::string str );
 		void			seeIdea( int nbr ) const;
 		void			forgetIdea( int nbr );
-
-		std::string		ideas[100];
 		
 		int				getIdeaN( void ) const;
 		void			setIdeaN( int newN );
 
 
 	private:
-		int	_ideaN;
+		int				_ideaN;
+		std::string		_ideas[100];
 };
 
 #endif

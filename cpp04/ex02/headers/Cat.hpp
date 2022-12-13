@@ -22,6 +22,8 @@ class	Cat : public AAnimal {
 		Cat( const Cat & value ) ;
 		~Cat( void );
 
+		Cat &		operator=( const Cat & rhs );
+
 		virtual void	makeSound( void ) const;
 
 		Brain *	getBrain( void ) const;

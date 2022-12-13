@@ -19,7 +19,10 @@ Brain::Brain( void ) : _ideaN( -1 ) {
 
 Brain::Brain( const Brain & value ) {
 	std::cout << "Copy constructor for Brain" << std::endl;
-	*this = value;
+	int	i = -1;
+	while (++i < 100)
+		this->_ideas[i] = value._ideas[i];
+	this->setIdeaN( value.getIdeaN() );
 	return ;
 }
 
@@ -29,9 +32,9 @@ Brain::~Brain( void ) {
 }
 
 Brain &	Brain::operator=( const Brain & rhs ) {
-	for ( int i = -1; i < 100; ++i )
-		this->ideas[i] = rhs.ideas[0];
-	this->setIdeaN( rhs.getIdeaN() );
+	int	i = -1;
+	while ( ++i <= rhs.getIdeaN() )
+		this->newIdea( rhs._ideas[i] );
 	return *this;
 }
 
@@ -42,7 +45,7 @@ void	Brain::newIdea( std::string str ) {
 		return ;
 	}
 	this->setIdeaN( getIdeaN() + 1);
-	this->ideas[this->getIdeaN()] = str;
+	this->_ideas[this->getIdeaN()] = str;
 	return ;
 }
 
@@ -52,7 +55,7 @@ void	Brain::seeIdea( int nbr ) const {
 	else if ( nbr > this->getIdeaN() )
 		std::cout << "Brain does not think of that many things." << std::endl;
 	else
-		std::cout << this->ideas[nbr] << std::endl;
+		std::cout << this->_ideas[nbr] << std::endl;
 	return ;
 }
 
@@ -66,7 +69,7 @@ void	Brain::forgetIdea( int nbr ) {
 		this->setIdeaN( this->getIdeaN() - 1 );
 		while (nbr < 99)
 		{
-			this->ideas[nbr] = this->ideas[nbr + 1];
+			this->_ideas[nbr] = this->_ideas[nbr + 1];
 			nbr++;
 		}
 	}

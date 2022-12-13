@@ -22,6 +22,8 @@ class	Dog : public AAnimal {
 		Dog( const Dog & value );
 		~Dog( void );
 
+		Dog &		operator=( const Dog & rhs );
+
 		virtual void	makeSound( void ) const;
 
 		Brain *	getBrain( void ) const;
