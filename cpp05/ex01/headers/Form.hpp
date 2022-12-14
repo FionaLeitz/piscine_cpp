@@ -39,6 +39,7 @@ class	Form {
 		};
 
 		void				beSigned( const Bureaucrat & employee );
+		void				beExec( const Bureaucrat & employee );
 
 		const std::string		getName( void ) const;
 		bool					getSigned( void ) const;

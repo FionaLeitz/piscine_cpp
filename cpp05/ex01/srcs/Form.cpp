@@ -19,10 +19,10 @@ Form::Form( void ) : _name("Basic Form"), _signed(false),
 
 Form::Form( std::string name, int signedgrade, int execgrade ) : _name( name ), _signed(false),
 					_signedgrade( signedgrade ), _execgrade( execgrade ) {
-	if (signedgrade > 150 || execgrade > 150)
-		throw(Form::GradeTooLowException());
-	else if (signedgrade < 1 || execgrade < 1)
+	if (signedgrade < 1 || execgrade < 1)
 		throw(Form::GradeTooHightException());
+	else if (signedgrade > 150 || execgrade > 150)
+		throw(Form::GradeTooLowException());
 	return ;
 }
 
@@ -41,11 +41,11 @@ Form &	Form::operator=( const Form & rhs ) {
 }
 
 const char *	Form::GradeTooHightException::what( void ) const throw() {
-	return "Grade too hight";
+	return "One grade is too hight for the Form !!";
 }
 
 const char *	Form::GradeTooLowException::what( void ) const throw() {
-	return "Grade too low";
+	return "One grade is too low for the Form !!";
 }
 
 void	Form::beSigned( const Bureaucrat & employee ) {
@@ -53,6 +53,12 @@ void	Form::beSigned( const Bureaucrat & employee ) {
 		throw(Form::GradeTooLowException());
 	else
 		this->setSigned( true );
+	return ;
+}
+
+void	Form::beExec( const Bureaucrat & employee ) {
+	if (employee.getGrade() > this->getExecGrade())
+		throw(Form::GradeTooLowException());
 	return ;
 }
 

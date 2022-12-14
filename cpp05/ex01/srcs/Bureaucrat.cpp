@@ -17,10 +17,10 @@ Bureaucrat::Bureaucrat( void ) : _name( "NoName" ), _grade( 150 ) {
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name( name ) {
-	if (grade > 150)
-		throw(Bureaucrat::GradeTooLowException());
-	else if (grade < 1)
+	if (grade < 1)
 		throw(Bureaucrat::GradeTooHightException());
+	else if (grade > 150)
+		throw(Bureaucrat::GradeTooLowException());
 	this->setGrade( grade );
 	return ;
 }
@@ -40,11 +40,11 @@ Bureaucrat &	Bureaucrat::operator=( const Bureaucrat & rhs ) {
 }
 
 const char *	Bureaucrat::GradeTooHightException::what( void ) const throw() {
-	return "Grade too hight";
+	return "One grade is too hight for a Bureaucrat !!";
 }
 
 const char *	Bureaucrat::GradeTooLowException::what( void ) const throw() {
-	return "Grade too low";
+	return "One grade is too low for a Bureaucrat !!";
 }
 
 void	Bureaucrat::incrGrade( void ) {
@@ -66,8 +66,19 @@ void	Bureaucrat::signForm( Form & form ) {
 		form.beSigned( *this );
 		std::cout << this->getName() << " signed " << form.getName() << std::endl; }
 	catch ( std::exception & e ) {
-		std::cout << this->getName() << "couldn't sign " << form.getName();
-		std::cout << "because " << e.what() << std::endl;
+		std::cout << this->getName() << " couldn't sign " << form.getName();
+		std::cout << " because " << e.what() << std::endl;
+	}
+	return ;
+}
+
+void	Bureaucrat::execForm( Form & form ) {
+	try {
+		form.beExec( *this );
+		std::cout << this->getName() << " executed " << form.getName() << std::endl; }
+	catch ( std::exception & e ) {
+		std::cout << this->getName() << " couldn't execute " << form.getName();
+		std::cout << " because " << e.what() << std::endl;
 	}
 	return ;
 }
