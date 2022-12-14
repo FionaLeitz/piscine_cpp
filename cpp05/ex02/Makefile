@@ -15,11 +15,14 @@ _GREEN=$'\033[1;32m
 _YELLOW=$'\033[1;33m
 _ORANGE=$'\033[38;2;255;165;0m
 
-NAME		= Bureaucrat2.0
+NAME		= Bureaucrat3.0
 
-SRCS		= main.cpp					\
-			  srcs/Bureaucrat.cpp		\
-			  srcs/Form.cpp				\
+SRCS		= main.cpp								\
+			  srcs/Bureaucrat.cpp					\
+			  srcs/AForm.cpp						\
+			  srcs/ShrubberyCreationForm.cpp		\
+			  srcs/RobotomyRequestForm.cpp			\
+			  srcs/PresidentialPardonForm.cpp		\
 			  
 CC			= c++
 
