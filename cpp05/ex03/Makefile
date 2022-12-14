@@ -15,7 +15,7 @@ _GREEN=$'\033[1;32m
 _YELLOW=$'\033[1;33m
 _ORANGE=$'\033[38;2;255;165;0m
 
-NAME		= Bureaucrat3.0
+NAME		= Bureaucrat4.0
 
 SRCS		= main.cpp								\
 			  srcs/Bureaucrat.cpp					\
@@ -23,6 +23,7 @@ SRCS		= main.cpp								\
 			  srcs/ShrubberyCreationForm.cpp		\
 			  srcs/RobotomyRequestForm.cpp			\
 			  srcs/PresidentialPardonForm.cpp		\
+			  srcs/Intern.cpp						\
 			  
 CC			= c++
 
@@ -35,7 +36,7 @@ DEPS		= ${addprefix objs/, ${SRCS:%.cpp=%.d}}
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@echo "${_GREEN}-------------- BUREAUCRAT3.0 --------------${_END}"
+			@echo "${_GREEN}-------------- BUREAUCRAT4.0 --------------${_END}"
 			@echo "${_ORANGE}Objects ${NAME} created${_END}"
 			@${CC} ${CXXFLAGS} -o ${NAME} ${OBJS}
 			@echo "${_GREEN}--> ${NAME} compiled succesfully !${_END}"
