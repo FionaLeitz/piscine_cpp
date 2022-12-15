@@ -21,12 +21,4 @@ class	RobotomyRequestForm : public AForm {
 
 };
 
-/*
-signuature 72, execution 45
-faire des bruits de perceuse
-informer que <target> a ete robotomise
-	-> succes 50%
-sinon informer que l'operation a echoue
-*/
-
 #endif

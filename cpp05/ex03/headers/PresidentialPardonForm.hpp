@@ -20,9 +20,4 @@ class	PresidentialPardonForm : public AForm {
 
 };
 
-/*
-signuature 25, execution 5
-informe que <target> a ete pardonne par Zaphod Beeblebrox
-*/
-
 #endif

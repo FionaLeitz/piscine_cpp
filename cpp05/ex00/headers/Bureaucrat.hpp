@@ -51,12 +51,4 @@ class	Bureaucrat {
 
 std::ostream &	operator<<( std::ostream & o, Bureaucrat const & rhs );
 
-// class	GradeTooHightException : public std::exception {
-// 	public:
-// 		virtual const char *	what( void ) const throw()
-// 		{
-// 			return "Grade too hight";
-// 		}
-// };
-
 #endif

@@ -60,12 +60,6 @@ void	AForm::beSigned( const Bureaucrat & employee ) {
 	return ;
 }
 
-// void	AForm::execute( const Bureaucrat & executor ) const {
-// 	if (executor.getGrade() > this->getExecGrade())
-// 		throw(AForm::GradeTooLowException());
-// 	return ;
-// }
-
 const std::string	AForm::getName( void ) const {
 	return this->_name;
 }

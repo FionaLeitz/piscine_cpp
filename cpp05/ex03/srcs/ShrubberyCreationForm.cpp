@@ -33,7 +33,8 @@ void	ShrubberyCreationForm::execute( const Bureaucrat & executor ) const {
 	if (executor.getGrade() > this->getExecGrade())
 		throw(AForm::CantExecuteFormException());
 	else {
-		std::ofstream	file( this->getTarget() + "_shrubbery" );
+		std::string	str = this->getTarget() + "_shrubbery";
+		std::ofstream	file( str.c_str() );
 		file << "                                                         ." << std::endl
 			<< "                                              .         ;  " << std::endl
 			<< "                 .              .              ;%     ;;   " << std::endl

@@ -7,7 +7,7 @@ class	RobotomyRequestForm : public AForm {
 	public:
 		RobotomyRequestForm( std::string target );
 		RobotomyRequestForm( const RobotomyRequestForm & value );
-		~RobotomyRequestForm( void );
+		virtual ~RobotomyRequestForm( void );
 
 		RobotomyRequestForm &		operator=( const RobotomyRequestForm & rhs );
 
@@ -20,13 +20,5 @@ class	RobotomyRequestForm : public AForm {
 		std::string	_target;
 
 };
-
-/*
-signuature 72, execution 45
-faire des bruits de perceuse
-informer que <target> a ete robotomise
-	-> succes 50%
-sinon informer que l'operation a echoue
-*/
 
 #endif

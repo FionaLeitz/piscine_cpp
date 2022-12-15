@@ -20,10 +20,4 @@ class	ShrubberyCreationForm : public AForm {
 
 };
 
-/*
-signuature 145, execution 137
-creer un fichier nomme <target> dans le repertoire courant
-ecrire des arbres ascii dedans
-*/
-
 #endif

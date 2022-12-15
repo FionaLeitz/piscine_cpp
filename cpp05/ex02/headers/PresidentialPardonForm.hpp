@@ -5,10 +5,9 @@
 
 class	PresidentialPardonForm : public AForm {
 	public:
-		PresidentialPardonForm( void );
 		PresidentialPardonForm( std::string target );
 		PresidentialPardonForm( const PresidentialPardonForm & value );
-		~PresidentialPardonForm( void );
+		virtual ~PresidentialPardonForm( void );
 
 		PresidentialPardonForm &		operator=( const PresidentialPardonForm & rhs );
 
@@ -16,13 +15,10 @@ class	PresidentialPardonForm : public AForm {
 		virtual void		execute( const Bureaucrat & executor ) const;
 
 	private:
+		PresidentialPardonForm( void );
+		
 		std::string	_target;
 
 };
-
-/*
-signuature 25, execution 5
-informe que <target> a ete pardonne par Zaphod Beeblebrox
-*/
 
 #endif

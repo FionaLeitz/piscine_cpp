@@ -17,6 +17,11 @@ class	Intern {
 
 		Intern &			operator=( const Intern & rhs );
 
+		class	InexistantFormException : public std::exception {
+			public:
+				virtual const char * what( void ) const throw();
+		};
+
 		AForm *			makeForm( std::string formname, std::string target );
 
 		private:

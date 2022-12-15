@@ -24,6 +24,10 @@ Intern &	Intern::operator=( const Intern & rhs ) {
 	return *this;
 }
 
+const char *	Intern::InexistantFormException::what( void ) const throw () {
+	return "This form does not exist.";
+}
+
 AForm *	Intern::makeForm( std::string formname, std::string target ) {
 	AForm *	newForm = NULL;
 	int	count = -1;
@@ -42,6 +46,9 @@ AForm *	Intern::makeForm( std::string formname, std::string target ) {
 			delete forms[count].form;
 	}
 	if (newForm == NULL)
+	{
 		std::cout << "Intern did not found form " << formname << " and did not created it" << std::endl;
+		throw(Intern::InexistantFormException());
+	}
 	return newForm;
 }

@@ -22,52 +22,52 @@ int	main( int argc, char **argv ) {
 		std::cout << "Needing only one argument" << std::endl;
 	else if (atoi( argv[1] ) == 1) {
 		Intern	someRandomIntern;
-		AForm*	rrf;
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-			Bureaucrat	Bob( "Bob", 1 );
+		AForm*	rrf = NULL;
 		try {
+			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+			Bureaucrat	Bob( "Bob", 1 );
 			Bob.executeForm( *rrf ); }
 		catch ( std::exception & e ) {
-			std::cout << "CATCH " << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 		if (rrf)
 			delete rrf;
 	}
 	else if (atoi( argv[1] ) == 2) {
 		Intern	someRandomIntern;
-		AForm*	rrf;
-		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-			Bureaucrat	Bob( "Bob", 1 );
+		AForm*	rrf = NULL;
 		try {
+			rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+			Bureaucrat	Bob( "Bob", 1 );
 			Bob.executeForm( *rrf ); }
 		catch ( std::exception & e ) {
-			std::cout << "CATCH " << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 		if (rrf)
 			delete rrf;
 	}
 	else if (atoi( argv[1] ) == 3) {
 		Intern	someRandomIntern;
-		AForm*	rrf;
-		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
-			Bureaucrat	Bob( "Bob", 1 );
+		AForm*	rrf = NULL;
 		try {
+			rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+			Bureaucrat	Bob( "Bob", 1 );
 			Bob.executeForm( *rrf ); }
 		catch ( std::exception & e ) {
-			std::cout << "CATCH " << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 		if (rrf)
 			delete rrf;
 	}
 	else if (atoi( argv[1] ) == 4) {
 		Intern	someRandomIntern;
-		AForm*	rrf;
-		rrf = someRandomIntern.makeForm("unexisting form", "Bender");
-			Bureaucrat	Bob( "Bob", 1 );
+		AForm*	rrf = NULL;
 		try {
+			rrf = someRandomIntern.makeForm("unexisting form", "Bender");
+			Bureaucrat	Bob( "Bob", 1 );
 			Bob.executeForm( *rrf ); }
 		catch ( std::exception & e ) {
-			std::cout << "CATCH " << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 		if (rrf)
 			delete rrf;

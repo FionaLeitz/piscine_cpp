@@ -5,7 +5,6 @@
 
 class	ShrubberyCreationForm : public AForm {
 	public:
-		ShrubberyCreationForm( void );
 		ShrubberyCreationForm( std::string target );
 		ShrubberyCreationForm( const ShrubberyCreationForm & value );
 		virtual ~ShrubberyCreationForm( void );
@@ -16,14 +15,10 @@ class	ShrubberyCreationForm : public AForm {
 		virtual void		execute( const Bureaucrat & executor ) const;
 
 	private:
+		ShrubberyCreationForm( void );
+		
 		std::string	_target;
 
 };
-
-/*
-signuature 145, execution 137
-creer un fichier nomme <target> dans le repertoire courant
-ecrire des arbres ascii dedans
-*/
 
 #endif
