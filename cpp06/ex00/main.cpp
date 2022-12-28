@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "headers/Types.hpp"
 
 bool	checkspec( char *string ) {
 	std::string	str(string);
@@ -16,11 +17,13 @@ int	main( int argc, char **argv ) {
 		std::cout << "Error" << std::endl << "Needing one argument and only one" << std::endl;
 		return 1;
 	}
-	if ( !checkspec(argv[1]) )
-	{
-		std::cout << "Litteral is not a special one." << std::endl;
-	}
-	else
+	if ( checkspec(argv[1]) )
 		std::cout << "Litteral is a special one !" << std::endl;
+		
+	else
+	{
+		Types	test(argv[1]);
+		std::cout << test;
+	}
 	return 0;
 }

@@ -18,6 +18,7 @@ _ORANGE=$'\033[38;2;255;165;0m
 NAME		= convert
 
 SRCS		= main.cpp					\
+			  srcs/Types.cpp			\
 			  
 CC			= c++
 
