@@ -14,6 +14,14 @@ class	Types	{
 
 		Types &			operator=( const Types & rhs );
 
+		bool			checkspec( void ) const;
+		bool			checknbr( void );
+		void			convert( void );
+
+		std::string		getType( void ) const;
+		void			setType( std::string str );
+		std::string		getStr( void ) const;
+		void			setStr( std::string str );
 		char			getCharacter( void ) const;
 		void			setCharacter( char character );
 		int				getInteger( void ) const;
@@ -24,6 +32,8 @@ class	Types	{
 		void			setDouble( double nbr ) ;
 
 	private:
+		std::string		_type;
+		std::string		_str;
 		char			_character;
 		int				_integer;
 		float			_float;
