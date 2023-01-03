@@ -17,7 +17,6 @@ class	Types	{
 
 		bool			checkspec( void ) const;
 		bool			checknbr( void );
-		void			convert( void );
 
 		std::string		getType( void ) const;
 		void			setType( std::string str );
@@ -33,6 +32,8 @@ class	Types	{
 		void			setDouble( double nbr ) ;
 
 	private:
+		void			convert( void );
+		
 		std::string		_type;
 		std::string		_str;
 		char			_character;
