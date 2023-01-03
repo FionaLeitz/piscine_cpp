@@ -1,5 +1,4 @@
 #include "../headers/Types.hpp"
-#include <iomanip>
 
 Types::Types( void ) : _character( 0 ), _integer( 0 ), _float( 0 ), _double( 0 ) {
 	return ;
@@ -9,11 +8,6 @@ Types::Types( char * string ) {
 	std::string	str(string);
 
 	this->setStr( str );
-	// detecter le type du litteral avant de faire la bonne conversion
-	// this->setDouble( static_cast<double>( atol( str ) ) );
-	// this->setCharacter( static_cast<char>( this->getDouble() ) );
-	// this->setInteger( static_cast<int>( this->getDouble() ) );
-	// this->setFloat( static_cast<float>( this->getDouble() ) );
 	return ;
 }
 
@@ -71,6 +65,8 @@ bool	Types::checknbr( void ) {
 	}
 	if ( point != this->getStr().rfind('.') )
 		return false;
+	if ( this->getStr()[0] == '+' || this->getStr()[0] == '-' )
+		count++;
 	while ( this->getStr().c_str()[++count] ) {
 		if ( isdigit(static_cast<int>(this->getStr().c_str()[count])) == 0 && this->getStr().c_str()[count] != '.' ) {
 			if ( this->getStr().c_str()[count] == 'f' && this->getStr().c_str()[count + 1] == '\0' )
@@ -176,20 +172,26 @@ void	Types::setDouble( double nbr ) {
 }
 
 std::ostream &	operator<<( std::ostream & o, Types const & rhs ) {
-	int	precision = rhs.getStr().size() - rhs.getStr().find('.');
-	if ( rhs.getType() == "char" )
-	{
-		precision++;
-		if ( rhs.getInteger() > 99 )
-			precision++;
-	}
-	if ( rhs.getCharacter() < 0 || rhs.getCharacter() > 127 )
+	int	precision = rhs.getStr().size() - 1;
+
+	std::cout << "precision = " << precision << std::endl;
+	if ( rhs.getType() == "int" )
+		precision += 2;
+	else if ( rhs.getType() == "float" )
+		precision--;
+	if ( rhs.getStr()[0] == '+' || rhs.getStr()[0] == '-' )
+		precision--;
+	if ( rhs.getCharacter() < 0 || rhs.getCharacter() > 127
+		|| rhs.getDouble() > 127 ||  rhs.getDouble() < -128 )
 		o << "char: impossible" << std::endl;
 	else if ( !isprint(static_cast<int>(rhs.getCharacter())) )
 		o << "char: non displayable" << std::endl;
 	else
 		o << "char: " << rhs.getCharacter() << std::endl;
-	o << "int: " << rhs.getInteger() << std::endl;
+	if ( rhs.getDouble() > 2147483647 || rhs.getDouble() < -2147483648 )
+		o << "int: impossible" << std::endl;
+	else
+		o << "int: " << rhs.getInteger() << std::endl;
 	o << "float: " << std::showpoint << std::setprecision(precision) << rhs.getFloat() << "f" << std::endl;
 	o << "double: " << std::showpoint << std::setprecision(precision) << rhs.getDouble() << std::endl;
 	return o;
