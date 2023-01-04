@@ -4,7 +4,13 @@
 # include <iostream>
 
 template< typename T >
-void	iter( ) {
+void	iter( T * tab, int nbr, void(f(T)) ) {
+	int	i = 0;
+	
+	while ( i < nbr ) {
+		f(tab[i]);
+		i++;
+	}
 	return ;
 }
 
