@@ -4,7 +4,7 @@
 # include <iostream>
 
 template< typename T >
-void	iter( T * tab, int nbr, void(f(T)) ) {
+void	iter( T * tab, int nbr, void(f(T const &)) ) {
 	int	i = 0;
 	
 	while ( i < nbr ) {

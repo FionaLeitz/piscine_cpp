@@ -46,5 +46,18 @@ int	main( void ) {
 	std::cout << "tab[5] = " << tab[5] << std::endl;
 	std::cout << "other_tab[5] = " << other_tab[5] << std::endl;
 
+	std::cout << std::endl;
+	const Array< char > test(3);
+	try {
+		std::cout << "===== Test avec char et const =====" << std::endl;
+		std::cout << "test[0] = " << test[0] << std::endl;
+		std::cout << "test[2] = " << test[2] << std::endl;
+		std::cout << "===== Acceder a une case inexistante =====" << std::endl;
+		std::cout << "test[10] = " << test[10] << std::endl;
+	}
+	catch ( std::exception &e ) {
+		std::cout << "Error : " << e.what() << std::endl;
+	}
+
 	return 0;
 }

@@ -7,12 +7,13 @@ void	display( T to_display ) {
 }
 
 int	main( void ) {
+
 	int		tab[10] = {1,2,3,4,5,6,7,8,9,10};
 	char	str[10] = "bonjour !";
 
-	iter<int>(tab, 10, &display);
+	iter<int>(tab, 10, display);
 	std::cout << std::endl;
-	iter<char>(str, 9, &display);
+	iter<char>(str, 9, display);
 	std::cout << std::endl;
 
 	return 0;
