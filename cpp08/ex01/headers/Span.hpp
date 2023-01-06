@@ -4,6 +4,7 @@
 # include <iostream>
 # include <algorithm>
 # include <vector>
+# include <iterator>
 
 class	Span {
 	public:
@@ -14,19 +15,29 @@ class	Span {
 
 		Span &		operator=( const Span & rhs );
 
-		void	addNumber( int nbr );
-		void	addMoreNumber( std::vector< int >::iterator begin, std::vector< int >::iterator end );
-		int		shortestSpan( void ) const;
-		int		longestSpan( void ) const;
+		void	addNumber( int const nbr );
 
-		unsigned int		getN( void ) const;
-		unsigned int		getSize( void ) const;
-		std::vector< int >	getVector( void ) const;
+		template< typename iterator >
+		void	addNumber( iterator begin, iterator end ) {
+			unsigned int	count = end - begin;
 
+			if ( count > this->getN() - this->getSize() )
+				throw( std::length_error("Not enough space in this span") );
+			this->_vector.insert(this->_vector.end(), begin, end);
+			this->_size += count;
+			return ;
+		}
+		int		shortestSpan( void );
+		int		longestSpan( void );
+
+		unsigned int		getN( void );
+		unsigned int		getSize( void );
+		std::vector< int >	getVector( void );
 	private:
 		unsigned int		_N;
 		unsigned int		_size;
 		std::vector< int > 	_vector;
+
 };
 
 #endif

@@ -15,10 +15,9 @@ _GREEN=$'\033[1;32m
 _YELLOW=$'\033[1;33m
 _ORANGE=$'\033[38;2;255;165;0m
 
-NAME		= span
+NAME		= mutant
 
 SRCS		= main.cpp					\
-			  srcs/Span.cpp				\
 			  
 CC			= c++
 
@@ -31,7 +30,7 @@ DEPS		= ${addprefix objs/, ${SRCS:%.cpp=%.d}}
 all:		${NAME}
 
 ${NAME}:	${OBJS}
-			@echo "${_GREEN}-------------- SPAN --------------${_END}"
+			@echo "${_GREEN}-------------- MUTANT --------------${_END}"
 			@echo "${_ORANGE}Objects ${NAME} created${_END}"
 			@${CC} ${CXXFLAGS} -o ${NAME} ${OBJS}
 			@echo "${_GREEN}--> ${NAME} compiled succesfully !${_END}"

@@ -8,8 +8,8 @@ Span::Span( unsigned int N ) : _N( N ), _size( 0 ) {
 	return ;
 }
 
-Span::Span( const Span & value ) : _N( value.getN() ) , _size( value.getSize() ) {
-	this->_vector = value.getVector();
+Span::Span( const Span & value ) : _N( value._N ) , _size( value._size ) {
+	this->_vector = value._vector;
 	return ;
 }
 
@@ -18,9 +18,9 @@ Span::~Span( void ) {
 }
 
 Span &	Span::operator=( const Span & rhs ) {
-	this->_N = rhs.getN();
-	this->_size = rhs.getSize();
-	this->_vector = rhs.getVector();
+	this->_N = rhs._N;
+	this->_size = rhs._size;
+	this->_vector = rhs._vector;
 	return *this;
 }
 
@@ -32,20 +32,7 @@ void	Span::addNumber( int nbr ) {
 	return ;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void	Span::addMoreNumber( std::vector< int >::iterator begin, std::vector< int >::iterator end ) {
-	// A VERIFIER PRECISEMENT
-	unsigned int	count = end - begin;
-
-	if ( count < this->getN() - this->getSize() )
-		throw( std::length_error("Not enough space in this span") );
-	this->_vector.insert(this->_vector.end(), begin, end);
-	this->_size += count;
-	return ;
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-int	Span::shortestSpan( void ) const {
+int	Span::shortestSpan( void ) {
 	std::vector< int >				tmp;
 	std::vector< int >::iterator	it;
 	std::vector< int >::iterator	ite;
@@ -65,7 +52,7 @@ int	Span::shortestSpan( void ) const {
 	return span;
 }
 
-int	Span::longestSpan( void ) const {
+int	Span::longestSpan( void ) {
 	std::vector< int >				tmp = this->getVector();
 	std::vector< int >::iterator	it;
 	std::vector< int >::iterator	ite;
@@ -78,14 +65,14 @@ int	Span::longestSpan( void ) const {
 	return abs(*it - *(ite - 1));
 }
 
-unsigned int	Span::getN( void ) const {
+unsigned int	Span::getN( void ) {
 	return this->_N;
 }
 
-unsigned int	Span::getSize( void ) const {
+unsigned int	Span::getSize( void ) {
 	return this->_size;
 }
 
-std::vector< int >	Span::getVector( void ) const {
+std::vector< int >	Span::getVector( void ) {
 	return this->_vector;
 }
