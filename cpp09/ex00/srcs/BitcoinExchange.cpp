@@ -25,54 +25,56 @@ BitcoinExchange &	BitcoinExchange::operator=( const BitcoinExchange & rhs ) {
 }
 
 void	BitcoinExchange::check_input( void ) {
-
-	// rajouter numero de ligne et valeur 0 si trop vieux
-
-
+	//check empty line
 	if ( this->_input.size() == 0 ) {
-		this->_error = 7;
+		this->_error = ERROR_EMPTY;
 		return ;
 	}
-	// d'abord, checker les tirets, les espaces et le pipe
+
+	// check format (year-month-day | number)
 	if ( this->_input.size() < 14 || this->_input[4] != '-' || this->_input[7] != '-' || this->_input[10] != ' ' || this->_input[11] != '|' || this->_input[12] != ' ' ) {
-		this->_error = 1;
+		this->_error = ERROR_FORMAT;
 		return ;
 	}
-	// puis checker l'annee
+
+	// check year
 	int	i;
 	for ( i = 0; isdigit( this->_input[i] ) != 0; i++ );
 	if ( i != 4 ) {
-		this->_error = 2;
+		this->_error = ERROR_YEAR;
 		return ;
 	}
-	// checker le mois
+
+	// check month
 	if ( this->_input[++i] != '0' && this->_input[i] != '1' ) {
-		this->_error = 3;
+		this->_error = ERROR_MONTH;
 		return ;
 	}
 	if ( isdigit( this->_input[++i] ) == 0 ) {
-		this->_error = 3;
+		this->_error = ERROR_MONTH;
 		return ;
 	}
 	if ( ( this->_input[i - 1] == '0' && this->_input[i] == '0' ) || ( this->_input[i - 1] == '1' && ( this->_input[i] != '0' && this->_input[i] != '1' && this->_input[i] != '2' ) ) ) {
-		this->_error = 3;
+		this->_error = ERROR_MONTH;
 		return ;
 	}
-	// checker le jour
+
+	// check day
 	i++;
 	if ( this->_input[++i] != '0' && this->_input[i] != '1' && this->_input[i] != '2' && this->_input[i] != '3' ) {
-		this->_error = 4;
+		this->_error = ERROR_DAY;
 		return ;
 	}
 	if ( isdigit( _input[++i] ) == 0 ) {
-		this->_error = 4;
+		this->_error = ERROR_DAY;
 		return ;
 	}
 	if ( ( this->_input[i - 1] == '0' && this->_input[i] == '0' ) || ( this->_input[i - 1] == '3' && ( this->_input[i] != '0' && this->_input[i] != '1' ) ) ) {
-		this->_error = 4;
+		this->_error = ERROR_DAY;
 		return ;
 	}
-	// checker le nombre
+
+	// check number
 	i = 13;
 	if (this->_input[i] == '+')
 		i++;
@@ -84,16 +86,14 @@ void	BitcoinExchange::check_input( void ) {
 			point++;
 	}
 	if ( i != (int)this->_input.size() ) {
-		this->_error = 5;
+		this->_error = ERROR_NUMBER;
 		return ;
 	}
 	if ( count > 4 ) {
-		this->_error = 6;
+		this->_error = ERROR_BIG_NUMBER;
 		return ;
 	}
-	// this->_input[10] = '\0';
-	// this->_date = this->_input;
-	// this->_nbr = atof( &this->_input.c_str()[13] );
+
 	return ;
 }
 

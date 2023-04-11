@@ -1,11 +1,21 @@
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
-#include <map>
-#include <fstream>
-#include <iostream>
-#include <cstdlib>
-#include <iomanip>
-#include <string>
+
+# define ERROR_EMPTY 1
+# define ERROR_FORMAT 2
+# define ERROR_YEAR 3
+# define ERROR_MONTH 4
+# define ERROR_DAY 5
+# define ERROR_NUMBER 6
+# define ERROR_BIG_NUMBER 7
+
+# include <map>
+# include <fstream>
+# include <iostream>
+# include <cstdlib>
+# include <iomanip>
+# include <string>
+
 class	BitcoinExchange {
 	public:
 		BitcoinExchange( void );
@@ -16,8 +26,6 @@ class	BitcoinExchange {
 		BitcoinExchange &		operator=( const BitcoinExchange & rhs );
 
 		void					check_input( void );
-		// void					parse( void );
-
 
 		std::string					getDate( void ) const;
 		float						getNbr( void ) const;
