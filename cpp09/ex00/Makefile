@@ -5,7 +5,8 @@ _ORANGE=$'\033[38;2;255;165;0m
 
 NAME		= btc
 
-SRCS		= main.cpp					\
+SRCS		= main.cpp						\
+			  srcs/BitcoinExchange.cpp		\
 			  
 CC			= c++
 
