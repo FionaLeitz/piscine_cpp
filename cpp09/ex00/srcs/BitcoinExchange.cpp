@@ -5,7 +5,7 @@ BitcoinExchange::BitcoinExchange( void ) : _error( -1 ) {}
 BitcoinExchange::BitcoinExchange( const BitcoinExchange & value ) : _date( value.getDate() ), _nbr( value.getNbr() ), _input( value.getInput() ),  _error( value.getError() ) {}
 
 BitcoinExchange::BitcoinExchange( std::string input ) : _input( input ), _error( 0 ) {
-	this->check_input();
+	_error = this->check_input();
 	if ( this->_input.size() >= 11 )
 		this->_input[10] = '\0';
 	this->_date = this->_input;
@@ -24,55 +24,37 @@ BitcoinExchange &	BitcoinExchange::operator=( const BitcoinExchange & rhs ) {
 	return *this;
 }
 
-void	BitcoinExchange::check_input( void ) {
+int	BitcoinExchange::check_input( void ) {
 	//check empty line
-	if ( this->_input.size() == 0 ) {
-		this->_error = ERROR_EMPTY;
-		return ;
-	}
+	if ( this->_input.size() == 0 )
+		return ERROR_EMPTY;
 
 	// check format (year-month-day | number)
-	if ( this->_input.size() < 14 || this->_input[4] != '-' || this->_input[7] != '-' || this->_input[10] != ' ' || this->_input[11] != '|' || this->_input[12] != ' ' ) {
-		this->_error = ERROR_FORMAT;
-		return ;
-	}
+	if ( this->_input.size() < 14 || this->_input[4] != '-' || this->_input[7] != '-' || this->_input[10] != ' ' || this->_input[11] != '|' || this->_input[12] != ' ' )
+		return ERROR_FORMAT;
 
 	// check year
 	int	i;
 	for ( i = 0; isdigit( this->_input[i] ) != 0; i++ );
-	if ( i != 4 ) {
-		this->_error = ERROR_YEAR;
-		return ;
-	}
+	if ( i != 4 )
+		return ERROR_YEAR;
 
 	// check month
-	if ( this->_input[++i] != '0' && this->_input[i] != '1' ) {
-		this->_error = ERROR_MONTH;
-		return ;
-	}
-	if ( isdigit( this->_input[++i] ) == 0 ) {
-		this->_error = ERROR_MONTH;
-		return ;
-	}
-	if ( ( this->_input[i - 1] == '0' && this->_input[i] == '0' ) || ( this->_input[i - 1] == '1' && ( this->_input[i] != '0' && this->_input[i] != '1' && this->_input[i] != '2' ) ) ) {
-		this->_error = ERROR_MONTH;
-		return ;
-	}
+	if ( this->_input[++i] != '0' && this->_input[i] != '1' )
+		return ERROR_MONTH;
+	if ( isdigit( this->_input[++i] ) == 0 )
+		return ERROR_MONTH;
+	if ( ( this->_input[i - 1] == '0' && this->_input[i] == '0' ) || ( this->_input[i - 1] == '1' && ( this->_input[i] != '0' && this->_input[i] != '1' && this->_input[i] != '2' ) ) )
+		return ERROR_MONTH;
 
 	// check day
 	i++;
-	if ( this->_input[++i] != '0' && this->_input[i] != '1' && this->_input[i] != '2' && this->_input[i] != '3' ) {
-		this->_error = ERROR_DAY;
-		return ;
-	}
-	if ( isdigit( _input[++i] ) == 0 ) {
-		this->_error = ERROR_DAY;
-		return ;
-	}
-	if ( ( this->_input[i - 1] == '0' && this->_input[i] == '0' ) || ( this->_input[i - 1] == '3' && ( this->_input[i] != '0' && this->_input[i] != '1' ) ) ) {
-		this->_error = ERROR_DAY;
-		return ;
-	}
+	if ( this->_input[++i] != '0' && this->_input[i] != '1' && this->_input[i] != '2' && this->_input[i] != '3' )
+		return ERROR_DAY;
+	if ( isdigit( _input[++i] ) == 0 )
+		return ERROR_DAY;
+	if ( ( this->_input[i - 1] == '0' && this->_input[i] == '0' ) || ( this->_input[i - 1] == '3' && ( this->_input[i] != '0' && this->_input[i] != '1' ) ) )
+		return ERROR_DAY;
 
 	// check number
 	i = 13;
@@ -85,16 +67,12 @@ void	BitcoinExchange::check_input( void ) {
 		if ( this->_input[i] == '.' )
 			point++;
 	}
-	if ( i != (int)this->_input.size() ) {
-		this->_error = ERROR_NUMBER;
-		return ;
-	}
-	if ( count > 4 ) {
-		this->_error = ERROR_BIG_NUMBER;
-		return ;
-	}
+	if ( i != (int)this->_input.size() )
+		return ERROR_NUMBER;
+	if ( count > 4 )
+		return ERROR_BIG_NUMBER;
 
-	return ;
+	return 0;
 }
 
 std::string	BitcoinExchange::getDate( void ) const {

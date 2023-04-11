@@ -25,7 +25,7 @@ class	BitcoinExchange {
 
 		BitcoinExchange &		operator=( const BitcoinExchange & rhs );
 
-		void					check_input( void );
+		int						check_input( void );
 
 		std::string					getDate( void ) const;
 		float						getNbr( void ) const;
