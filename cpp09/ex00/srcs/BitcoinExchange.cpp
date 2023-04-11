@@ -6,6 +6,12 @@ BitcoinExchange::BitcoinExchange( const BitcoinExchange & value ) : _date( value
 
 BitcoinExchange::BitcoinExchange( std::string input ) : _input( input ), _error( 0 ) {
 	this->check_input();
+	if ( this->_input.size() >= 11 )
+		this->_input[10] = '\0';
+	this->_date = this->_input;
+	this->_nbr = 0;
+	if (this->_input.size() >= 14 )
+		this->_nbr = atof( &this->_input.c_str()[13] );
 }
 
 BitcoinExchange::~BitcoinExchange( void ) {}
@@ -18,8 +24,15 @@ BitcoinExchange &	BitcoinExchange::operator=( const BitcoinExchange & rhs ) {
 	return *this;
 }
 
-//	2011-01-03 | 3
 void	BitcoinExchange::check_input( void ) {
+
+	// rajouter numero de ligne et valeur 0 si trop vieux
+
+
+	if ( this->_input.size() == 0 ) {
+		this->_error = 7;
+		return ;
+	}
 	// d'abord, checker les tirets, les espaces et le pipe
 	if ( this->_input.size() < 14 || this->_input[4] != '-' || this->_input[7] != '-' || this->_input[10] != ' ' || this->_input[11] != '|' || this->_input[12] != ' ' ) {
 		this->_error = 1;
@@ -37,7 +50,7 @@ void	BitcoinExchange::check_input( void ) {
 		this->_error = 3;
 		return ;
 	}
-	if ( isdigit( this->_input[++i] ) != 0 ) {
+	if ( isdigit( this->_input[++i] ) == 0 ) {
 		this->_error = 3;
 		return ;
 	}
@@ -46,11 +59,12 @@ void	BitcoinExchange::check_input( void ) {
 		return ;
 	}
 	// checker le jour
+	i++;
 	if ( this->_input[++i] != '0' && this->_input[i] != '1' && this->_input[i] != '2' && this->_input[i] != '3' ) {
 		this->_error = 4;
 		return ;
 	}
-	if ( isdigit( _input[++i] ) != 0 ) {
+	if ( isdigit( _input[++i] ) == 0 ) {
 		this->_error = 4;
 		return ;
 	}
@@ -69,21 +83,19 @@ void	BitcoinExchange::check_input( void ) {
 		if ( this->_input[i] == '.' )
 			point++;
 	}
-	if ( i != (int)this->_input.size() || count > 4 || count == 0 ) {
+	if ( i != (int)this->_input.size() ) {
 		this->_error = 5;
 		return ;
 	}
-	this->_input[10] = '\0';
-	this->_date = this->_input;
-	this->_nbr = atof( &this->_input.c_str()[13] );
+	if ( count > 4 ) {
+		this->_error = 6;
+		return ;
+	}
+	// this->_input[10] = '\0';
+	// this->_date = this->_input;
+	// this->_nbr = atof( &this->_input.c_str()[13] );
 	return ;
 }
-
-// void	BitcointExchange::parse( void ) {
-
-
-// 	return ;
-// }
 
 std::string	BitcoinExchange::getDate( void ) const {
 	return this->_date;
