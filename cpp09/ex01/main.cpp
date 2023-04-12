@@ -17,8 +17,11 @@ void	operation( char c, std::stack<int> *operand ) {
 		(*operand).push( a + b );
 	else if ( c == '-' )
 		(*operand).push( b - a );
-	else if ( c == '/' )
+	else if ( c == '/' ) {
+		if ( a == 0 )
+			throw std::invalid_argument( "Error, dividing per 0" );
 		(*operand).push( b / a );
+	}
 	else if ( c == '*' )
 		(*operand).push( a * b );
 
