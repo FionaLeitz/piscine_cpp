@@ -6,6 +6,7 @@ _ORANGE=$'\033[38;2;255;165;0m
 NAME		= PmergeMe
 
 SRCS		= main.cpp						\
+			  PmergeMe.cpp					\
 			  
 CC			= c++
 

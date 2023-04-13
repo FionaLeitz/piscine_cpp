@@ -34,13 +34,11 @@ int	istoken( char c ) {
 	return 0;
 }
 
-int	isnumber( int *count, char *str ) {
-	if ( str[*count] == '-' || str[*count] == '+' ) {
-		if ( isdigit( str[*count + 1] ) != 0 ) {
-			return 1;
-		}
+int	isnumber( int count, char *str ) {
+	if ( str[count] == '-' || str[count] == '+' ) {
+		count++;
 	}
-	if ( isdigit( str[*count] ) != 0 ) {
+	if ( isdigit( str[count] ) != 0 ) {
 		return 1;
 	}
 	return 0;
@@ -52,20 +50,20 @@ void	calcul( char *str, std::stack<int> *operand ) {
 	nbr[2] = '\0';
 
 	while ( str[count] != '\0' ) {
-		if ( isnumber( &count, str ) == 1 ) {
+		if ( isnumber( count, str ) == 1 ) {
 			nbr[0] = str[count];
 			if ( isdigit( nbr[0] ) == 0 ) {
 				nbr[1] = str[++count];
 			}
 			(*operand).push( atoi( nbr ) );
 			nbr[1] = '\0';
+			count++;
 		}
 		else if ( istoken( str[count] ) != 0 ) {
-			operation( str[count], operand );
+			operation( str[count++], operand );
 		}
-		else if ( str[count] != ' ' )
+		if ( str[count] != '\0' && str[count++] != ' ' )
 			throw std::invalid_argument( "Error" );
-		count++;
 	}
 
 	if ( (*operand).size() != 1 )
@@ -74,6 +72,7 @@ void	calcul( char *str, std::stack<int> *operand ) {
 	return ;
 }
 
+// probleme espace
 int	main( int argc, char **argv ) {
 	std::stack<int>	operand;
 
