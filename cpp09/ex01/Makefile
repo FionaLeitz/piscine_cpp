@@ -9,7 +9,7 @@ SRCS		= main.cpp						\
 			  
 CC			= c++
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -g
 
 OBJS		= ${addprefix objs/, ${SRCS:%.cpp=%.o}}
 

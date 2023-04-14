@@ -65,11 +65,11 @@ int	BitcoinExchange::check_input( void ) {
 	for ( ; isdigit( this->_input[i] ) != 0 || ( this->_input[i] == '.' && point == 0 ); i++ ) {
 		count++;
 		if ( this->_input[i] == '.' )
-			point++;
+			point = i - 13;
 	}
 	if ( i != (int)this->_input.size() )
 		return ERROR_NUMBER;
-	if ( count > 4 )
+	if ( count > point && point > 3 )
 		return ERROR_BIG_NUMBER;
 
 	return 0;

@@ -47,6 +47,7 @@ int	isnumber( int count, char *str ) {
 void	calcul( char *str, std::stack<int> *operand ) {
 	int	count = 0;
 	char	nbr[3];
+	nbr[1] = '\0';
 	nbr[2] = '\0';
 
 	while ( str[count] != '\0' ) {
