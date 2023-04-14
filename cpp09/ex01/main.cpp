@@ -72,7 +72,6 @@ void	calcul( char *str, std::stack<int> *operand ) {
 	return ;
 }
 
-// probleme espace
 int	main( int argc, char **argv ) {
 	std::stack<int>	operand;
 

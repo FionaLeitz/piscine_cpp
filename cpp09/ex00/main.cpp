@@ -92,7 +92,7 @@ int main( int argc, char **argv ) {
 	std::map<std::string, float>	data;
 
 	if ( argc != 2 ) {
-		std::cout << "Error: missing input file." << std::endl;
+		std::cout << "Error: needing one argument." << std::endl;
 		return 1;
 	}
 

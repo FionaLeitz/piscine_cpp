@@ -1,12 +1,4 @@
-#include <vector>
-#include <deque>
-#include <string>
-#include <iostream>
-#include <cstdlib>
-#include <sys/time.h>
-
-std::vector<long>	merge_insert_sort_vector( std::vector<long> vec, int first, int last );
-std::deque<long>	merge_insert_sort_deque( std::deque<long> deq, int first, int last );
+#include "headers/PmergeMe.hpp"
 
 int	isnumber( char *number ) {
 	int	count = 0;
@@ -18,9 +10,7 @@ int	isnumber( char *number ) {
 
 }
 
-// string vide
 int	check_sequence( int size, char **numbers ) {
-
 	int	count = 0;
 	while ( count < size ) {
 		if ( isnumber( numbers[count] ) != 0 || numbers[count][0] == '\0' )
@@ -59,24 +49,33 @@ std::deque<long>	fill_deque( int size, char **numbers ) {
 	return deq;
 }
 
-int	main( int argc, char ** argv ) {
+int	start( int argc, char ** argv ) {
+
 	if ( argc < 2 ) {
 		std::cout << "Error: wrong number of argument, at least one needed." << std::endl;
 		return 1;
 	}
-
 	if ( check_sequence( argc - 1, &argv[1] ) == 1 ) {
 		std::cout << "Error" << std::endl;
 		return 1;
 	}
 
-	// fonction pour remplir le conteneur 1
+	std::cout << "Before: ";
+	for ( int i = 1; i < argc; i++ )
+		std::cout << argv[i] << " ";
+	std::cout << std::endl;
 
+	return 0;
+}
 
-	timeval tim;
-	gettimeofday(&tim,NULL);
-	unsigned long long	t1 = tim.tv_usec;
+int	main( int argc, char ** argv ) {
 
+	if ( start( argc, argv ) == 1 )
+		return 1;
+
+	double	time_taken;
+	clock_t	start, end;
+	start = clock();
 
 	std::vector<long>	vec;
 	try {
@@ -86,31 +85,21 @@ int	main( int argc, char ** argv ) {
 		std::cout << e.what() << std::endl;
 		return 1;
 	}
-	// std::cout << "Before:	";
-	std::vector<long>::iterator	it;
-	// = vec.begin();
-	// while ( it != vec.end() ) {
-	// 	std::cout << *it << " ";
-	// 	it++;
-	// }
-	// std::cout << std::endl;
-
-	// fonction pour trier le conteneur 1
-	vec = merge_insert_sort_vector( vec, 0, vec.size() - 1 );
-
-	gettimeofday(&tim,NULL);
-	unsigned long long	t2 = tim.tv_usec;
+	vec = merge_insert_sort( vec, 0, vec.size() - 1 );
+	end = clock();
+	time_taken = double( end - start );
 
 	std::cout << "After:	";
-	it = vec.begin();
+	std::vector<long>::iterator	it = vec.begin();
 	while ( it != vec.end() ) {
 		std::cout << *it << " ";
 		it++;
 	}
 	std::cout << std::endl;
-	std::cout << "t2 = " << t2 << " et t1 = " << t1 << std::endl;
-	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << t2 - t1 << std::endl;
-	// fonction pour remplir le conteneur 2
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " << time_taken << std::endl;
+	
+
+	start = clock();
 	std::deque<long>	deq;
 	try {
 		deq = fill_deque( argc - 1, &argv[1] );
@@ -119,8 +108,9 @@ int	main( int argc, char ** argv ) {
 		std::cout << e.what() << std::endl;
 		return 1;
 	}
-	// fonction pour trier le conteneur 2
-	deq = merge_insert_sort_deque( deq, 0, deq.size() - 1 );
-	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : " << std::endl;
+	deq = merge_insert_sort( deq, 0, deq.size() - 1 );
+	end = clock();
+	time_taken = double( end - start );
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque : " << time_taken << std::endl;
 	return 0;
 }
